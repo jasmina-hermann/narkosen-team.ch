@@ -69,8 +69,8 @@ if (cv) {
     if (n > 0) { for (let i = 0; i < n; i++) step(); last = now; }
     requestAnimationFrame(loop);
   }
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { for (let i = 0; i < W - 1; i++) step(); }
-  else requestAnimationFrame(loop);
+  // Läuft immer, auch wenn am Computer "Animationen aus" eingestellt ist
+  requestAnimationFrame(loop);
 
   // SpO₂ und Blutdruck ändern sich ab und zu ein wenig
   setInterval(() => {

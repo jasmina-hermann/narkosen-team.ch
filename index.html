@@ -3,336 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>narkose-team.ch – Ambulante Anästhesie</title>
-<meta name="description" content="Ihr ambulantes Narkose-Team: persönlich, mobil, exklusiv. Anästhesie für Praxen, ambulante OP-Zentren und Spitäler.">
+<title>narkose-team.ch – Ihr ambulantes Narkose-Team</title>
+<meta name="description" content="Ambulante Anästhesie für Praxen, OP-Zentren und Spitäler. persönlich. mobil. exklusiv.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-<style>
-  /* ==========================================================
-     FARBEN: Hier die Farben eurer Webseite eintragen.
-     Nur diese drei Zeilen ändern, der Rest passt sich an.
-     ========================================================== */
-  :root {
-    --primary: #46839d;   /* Hauptfarbe (Buttons, Akzente) */
-    --dark:    #1f4555;   /* Dunkle Farbe (Titel, Footer)   */
-    --accent:  #6aa5bb;   /* Helles Blau (Verlauf, EKG)     */
-
-    --light: #f1f6f8;
-    --text: #44596a;
-    --white: #ffffff;
-    --radius: 18px;
-    --shadow: 0 20px 50px -20px rgba(11, 46, 63, .25);
-    --ease: cubic-bezier(.22, 1, .36, 1);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: "Inter", system-ui, sans-serif; color: var(--text); background: var(--white); line-height: 1.65; overflow-x: hidden; }
-  h1, h2, h3 { font-family: "Plus Jakarta Sans", sans-serif; color: var(--dark); line-height: 1.15; }
-  a { color: inherit; text-decoration: none; }
-  .container { width: min(1140px, 100% - 40px); margin-inline: auto; }
-  section { padding: 110px 0; }
-  .eyebrow { display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); margin-bottom: 14px; }
-  .section-title { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 18px; }
-  .lead { font-size: 1.1rem; max-width: 620px; }
-
-  /* ---------- Buttons ---------- */
-  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 28px; border-radius: 999px; font-weight: 600; transition: transform .4s var(--ease), box-shadow .4s var(--ease), background .3s; }
-  .btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 10px 30px -10px var(--primary); }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -12px var(--primary); }
-  .btn-ghost { border: 1.5px solid rgba(11,46,63,.15); color: var(--dark); }
-  .btn-ghost:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }
-
-  /* ---------- Header ---------- */
-  header { position: fixed; inset: 0 0 auto; z-index: 50; padding: 22px 0; transition: padding .4s var(--ease), background .4s, box-shadow .4s; }
-  header.scrolled { padding: 12px 0; background: rgba(255,255,255,.82); backdrop-filter: blur(14px); box-shadow: 0 4px 30px rgba(11,46,63,.08); }
-  .nav { display: flex; align-items: center; justify-content: space-between; }
-  .logo { font-family: "Plus Jakarta Sans"; font-weight: 800; font-size: 1.35rem; color: var(--dark); display: flex; align-items: center; gap: 10px; }
-  .logo svg { width: 34px; height: 34px; }
-  .logo span { color: var(--primary); }
-  .nav-links { display: flex; gap: 34px; list-style: none; font-weight: 500; }
-  .nav-links a { position: relative; color: var(--dark); }
-  .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -6px; height: 2px; width: 100%; background: var(--primary); transform: scaleX(0); transform-origin: right; transition: transform .4s var(--ease); }
-  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
-  .menu-btn { display: none; background: none; border: 0; cursor: pointer; }
-  .menu-btn span { display: block; width: 26px; height: 2px; background: var(--dark); margin: 6px 0; transition: .3s; }
-
-  /* ---------- Hero ---------- */
-  .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 140px; background: linear-gradient(180deg, var(--light), var(--white)); overflow: hidden; }
-  .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .35; animation: float 14s ease-in-out infinite; }
-  .blob.b1 { width: 480px; height: 480px; background: var(--primary); top: -120px; right: -100px; }
-  .blob.b2 { width: 340px; height: 340px; background: var(--accent); bottom: 40px; left: -140px; opacity: .15; animation-delay: -6s; }
-  @keyframes float { 50% { transform: translate(40px, 30px) scale(1.08); } }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center; position: relative; }
-  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); margin: 10px 0 22px; letter-spacing: -.02em; }
-  .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
-  .tags { display: flex; gap: 10px; flex-wrap: wrap; }
-  .tags span { font-size: .85rem; font-weight: 600; padding: 7px 16px; border-radius: 999px; background: var(--white); color: var(--primary); box-shadow: 0 4px 14px rgba(11,46,63,.07); }
-
-  /* Monitor-Karte mit EKG */
-  .monitor { background: var(--dark); border-radius: 28px; padding: 30px; color: #cfe7ea; box-shadow: var(--shadow); position: relative; transform: perspective(1000px) rotateY(-8deg) rotateX(4deg); transition: transform .8s var(--ease); }
-  .monitor:hover { transform: perspective(1000px) rotateY(0) rotateX(0); }
-  .monitor-top { display: flex; justify-content: space-between; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
-  .live { display: flex; align-items: center; gap: 8px; }
-  .live::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #4ade80; animation: pulse 1.6s infinite; }
-  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(74,222,128,.7); } 100% { box-shadow: 0 0 0 12px rgba(74,222,128,0); } }
-  .ecg { width: 100%; height: 130px; margin: 24px 0; }
-  .ecg path { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 900; stroke-dashoffset: 900; animation: draw 3s linear infinite; filter: drop-shadow(0 0 6px var(--accent)); }
-  @keyframes draw { to { stroke-dashoffset: -900; } }
-  .vitals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .vital { background: rgba(255,255,255,.06); border-radius: 14px; padding: 14px; }
-  .vital b { display: block; font-size: 1.6rem; color: var(--white); font-family: "Plus Jakarta Sans"; }
-  .vital small { font-size: .72rem; opacity: .7; text-transform: uppercase; letter-spacing: .08em; }
-
-  /* ---------- Keyword-Laufband ---------- */
-  .marquee { background: var(--dark); color: var(--white); padding: 22px 0; overflow: hidden; white-space: nowrap; }
-  .marquee-track { display: inline-flex; gap: 48px; animation: scroll 40s linear infinite; font-family: "Plus Jakarta Sans"; font-weight: 600; font-size: 1.15rem; }
-  .marquee-track span::after { content: "✚"; color: var(--accent); margin-left: 48px; font-size: .8rem; }
-  @keyframes scroll { to { transform: translateX(-50%); } }
-
-  /* ---------- Leistungen ---------- */
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 56px; }
-  .card { background: var(--white); border: 1px solid rgba(11,46,63,.08); border-radius: var(--radius); padding: 34px 28px; position: relative; overflow: hidden; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
-  .card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, var(--primary), var(--dark)); opacity: 0; transition: opacity .5s var(--ease); }
-  .card > * { position: relative; }
-  .card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
-  .card:hover::before { opacity: 1; }
-  .card:hover h3, .card:hover p { color: var(--white); }
-  .card:hover .icon { background: rgba(255,255,255,.15); color: var(--white); }
-  .icon { width: 58px; height: 58px; border-radius: 16px; display: grid; place-items: center; background: var(--light); color: var(--primary); margin-bottom: 22px; transition: .5s var(--ease); }
-  .icon svg { width: 28px; height: 28px; }
-  .card h3 { font-size: 1.2rem; margin-bottom: 10px; transition: color .4s; }
-  .card p { font-size: .95rem; transition: color .4s; }
-
-  /* ---------- Ablauf ---------- */
-  .process { background: var(--light); }
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; position: relative; }
-  .steps::before { content: ""; position: absolute; top: 32px; left: 10%; right: 10%; height: 2px; background: repeating-linear-gradient(90deg, var(--primary) 0 8px, transparent 8px 16px); opacity: .4; }
-  .step { text-align: center; position: relative; }
-  .step-num { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 22px; background: var(--white); color: var(--primary); font-family: "Plus Jakarta Sans"; font-weight: 800; font-size: 1.3rem; box-shadow: 0 0 0 8px var(--light), var(--shadow); transition: .5s var(--ease); }
-  .step:hover .step-num { background: var(--primary); color: var(--white); transform: scale(1.1); }
-  .step h3 { margin-bottom: 10px; }
-
-  /* ---------- Fachbereiche ---------- */
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
-  .list { list-style: none; display: grid; gap: 16px; }
-  .list li { display: flex; gap: 16px; align-items: center; padding: 20px 24px; border-radius: 14px; background: var(--light); font-weight: 600; color: var(--dark); transition: transform .4s var(--ease), background .4s; }
-  .list li:hover { transform: translateX(10px); background: #e6f1f3; }
-  .list li::before { content: "✓"; width: 30px; height: 30px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--primary); color: var(--white); font-size: .85rem; }
-
-  /* ---------- FAQ ---------- */
-  .faq { max-width: 780px; margin: 50px auto 0; }
-  .faq details { border-bottom: 1px solid rgba(11,46,63,.1); padding: 22px 0; }
-  .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; font-weight: 600; color: var(--dark); font-size: 1.08rem; }
-  .faq summary::after { content: "+"; font-size: 1.5rem; line-height: 1; color: var(--primary); transition: transform .4s var(--ease); }
-  .faq details[open] summary::after { transform: rotate(45deg); }
-  .faq p { margin-top: 12px; animation: fade .5s var(--ease); }
-  @keyframes fade { from { opacity: 0; transform: translateY(-8px); } }
-
-  /* ---------- Kontakt ---------- */
-  .cta { background: linear-gradient(135deg, var(--dark), var(--primary)); color: #d9eef1; border-radius: 32px; padding: 70px 60px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; position: relative; overflow: hidden; }
-  .cta::after { content: ""; position: absolute; width: 400px; height: 400px; border-radius: 50%; border: 60px solid rgba(255,255,255,.05); right: -120px; top: -160px; }
-  .cta h2 { color: var(--white); font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin-bottom: 14px; }
-  .contact-list { display: grid; gap: 14px; position: relative; z-index: 1; }
-  .contact-list a, .contact-list div { display: flex; gap: 14px; align-items: center; background: rgba(255,255,255,.08); padding: 16px 20px; border-radius: 14px; color: var(--white); transition: background .3s, transform .4s var(--ease); }
-  .contact-list a:hover { background: rgba(255,255,255,.16); transform: translateX(6px); }
-
-  footer { padding: 50px 0; text-align: center; font-size: .9rem; }
-
-  /* ---------- Scroll-Animationen ---------- */
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
-  .reveal.visible { opacity: 1; transform: none; }
-  .delay-1 { transition-delay: .12s; } .delay-2 { transition-delay: .24s; } .delay-3 { transition-delay: .36s; }
-
-  /* ---------- Mobile ---------- */
-  @media (max-width: 900px) {
-    .hero-grid, .split, .cta { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr; }
-    .steps::before { display: none; }
-    .cta { padding: 50px 28px; }
-    .monitor { transform: none; }
-    .menu-btn { display: block; }
-    .nav-links { position: fixed; inset: 70px 20px auto; flex-direction: column; gap: 0; background: var(--white); border-radius: 18px; box-shadow: var(--shadow); padding: 10px; opacity: 0; pointer-events: none; transform: translateY(-10px); transition: .4s var(--ease); }
-    .nav-links a { display: block; padding: 14px 18px; }
-    .nav-links.open { opacity: 1; pointer-events: auto; transform: none; }
-    section { padding: 80px 0; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .reveal { opacity: 1; transform: none; }
-    .ecg path { stroke-dashoffset: 0; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header id="header">
+<header>
   <nav class="container nav">
-    <a href="#" class="logo">
-      <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="12" fill="var(--primary)"/><path d="M6 21h7l3-7 5 13 3-6h10" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div>narkose-team<span>.ch</span></div>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#leistungen">Leistungen</a></li>
-      <li><a href="#ablauf">Ablauf</a></li>
-      <li><a href="#fachbereiche">Partner*innen</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
+    <a href="index.html" class="logo">narkose<svg viewBox="0 0 34 20" fill="none"><path d="M1 11h9l3-6 4 11 3-8 2 3h11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>team.ch</a>
+    <ul class="nav-links">
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="anaesthesie.html">Anästhesie</a></li>
+      <li><a href="partner.html">Partner*innen</a></li>
+      <li><a href="patienten.html">Patient*innen</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
-    <button class="menu-btn" id="menuBtn" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    <button class="menu-btn" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
   </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="blob b1"></div><div class="blob b2"></div>
-  <div class="container hero-grid">
-    <div>
-      <div class="tags reveal"><span>persönlich</span><span>mobil</span><span>exklusiv</span></div>
-      <h1 class="reveal delay-1">Ambulante Anästhesie.<br><em>simple smooth safe.</em></h1>
-      <p class="lead reveal delay-2">Ihr professioneller Partner für Arztpraxen, ambulante Operationszentren und Spitäler. Individuelle, ganzheitliche Betreuung vor, während und nach der Narkose.</p>
-      <div class="hero-actions reveal delay-3">
-        <a href="#kontakt" class="btn btn-primary">Anfrage stellen →</a>
-        <a href="#leistungen" class="btn btn-ghost">Unsere Leistungen</a>
-      </div>
-    </div>
-    <div class="monitor reveal delay-2" aria-hidden="true">
-      <div class="monitor-top"><span class="live">Monitoring</span><span>narkose-team.ch</span></div>
-      <svg class="ecg" viewBox="0 0 400 130" preserveAspectRatio="none">
-        <path d="M0 70 H60 L75 70 L85 50 L95 70 H120 L135 15 L150 120 L162 70 H200 L215 55 L235 70 H260 L275 15 L290 120 L302 70 H340 L355 55 L375 70 H400"/>
-      </svg>
-      <div class="vitals">
-        <div class="vital"><small>Herzfrequenz</small><b id="hr">72</b></div>
-        <div class="vital"><small>SpO₂</small><b>99%</b></div>
-        <div class="vital"><small>Blutdruck</small><b>118/76</b></div>
+  <svg class="hero-line" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 90 H180 L200 70 L220 90 H300 L320 20 L345 150 L365 90 H520 L545 65 L575 90 H700 L720 20 L745 150 L765 90 H920 L945 65 L975 90 H1200"/>
+  </svg>
+  <div class="container hero-content">
+    <h1><span class="word">simple.</span> <span class="word">smooth.</span> <span class="word soft">safe.</span></h1>
+    <div class="hero-sub">
+      <p>Ihr ambulantes Narkose-Team für Arztpraxen, ambulante Operationszentren und Spitäler. Wir kommen zu Ihnen.</p>
+      <div class="hero-actions">
+        <a class="btn btn-white" href="kontakt.html">Anfrage stellen →</a>
+        <a class="btn btn-outline" href="#leistungen">Was wir machen</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LAUFBAND -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>achtsam</span><span>sicher</span><span>individuell</span><span>diskret</span><span>persönlich</span><span>mobil</span><span>erfahren</span><span>empathisch</span><span>flexibel</span><span>zuverlässig</span><span>vertrauensvoll</span>
-    <span>achtsam</span><span>sicher</span><span>individuell</span><span>diskret</span><span>persönlich</span><span>mobil</span><span>erfahren</span><span>empathisch</span><span>flexibel</span><span>zuverlässig</span><span>vertrauensvoll</span>
+<div class="container monitor-wrap">
+  <div class="monitor reveal" aria-hidden="true">
+    <div class="monitor-top"><span class="live">Live-Monitoring</span><span>narkose-team.ch</span></div>
+    <div class="screen">
+      <span class="wave-label" style="top:10px;color:#4ade80">EKG II</span>
+      <span class="wave-label" style="top:62%;color:#7dd3fc">SpO₂</span>
+      <canvas id="monitor" width="1100" height="300"></canvas>
+    </div>
+    <div class="vitals">
+      <div class="vital"><small>Herzfrequenz</small><b style="color:#4ade80"><span id="hr">72</span><span class="heart" id="heart">♥</span></b></div>
+      <div class="vital"><small>SpO₂</small><b style="color:#7dd3fc"><span id="spo2">99%</span></b></div>
+      <div class="vital"><small>Blutdruck</small><b id="bp">118/76</b></div>
+    </div>
   </div>
 </div>
 
-<!-- LEISTUNGEN -->
 <section id="leistungen">
   <div class="container">
-    <span class="eyebrow reveal">Unsere Leistungen</span>
-    <h2 class="section-title reveal">Moderne Anästhesie, dort wo Sie operieren.</h2>
-    <p class="lead reveal">Mit modernen Techniken und lückenloser Überwachung durch ein erfahrenes Anästhesie-Team.</p>
-    <div class="cards">
-      <div class="card reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-        <h3>Ambulante Anästhesie</h3><p>Mobile Narkose für Praxen, OP-Zentren und Spitäler, mit eigener Ausrüstung.</p>
+    <span class="eyebrow reveal">Was wir machen</span>
+    <h2 class="title reveal">Sichere Narkose, dort wo Sie operieren.</h2>
+    <p class="lead reveal">Wir betreuen Ihre Patient*innen individuell und ganzheitlich vor, während und nach der Narkose, mit modernen Techniken und lückenloser Überwachung.</p>
+    <div class="bento">
+      <a href="anaesthesie.html" class="tile big reveal">
+        <span class="num">01</span>
+        <div>
+          <h3>Ambulante Anästhesie</h3>
+          <p>Unser erfahrenes Team kommt mit eigener, moderner Ausrüstung in Ihre Praxis, Ihr OP-Zentrum oder Ihr Spital.</p>
+        </div>
+        <div class="chips"><span>Chirurgie</span><span>Zahnmedizin</span><span>Kardiologie</span><span>Diagnostik</span></div>
+      </a>
+      <a href="anaesthesie.html#vorher" class="tile reveal d1">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
+        <div><h3>Vorher</h3><p>Individuelle präoperative Abklärung.</p></div>
+      </a>
+      <a href="anaesthesie.html#waehrend" class="tile reveal d2">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <div><h3>Während</h3><p>Moderne intraoperative Anästhesie.</p></div>
+      </a>
+      <a href="anaesthesie.html#nachher" class="tile wide accent reveal d1">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <div><h3>Nachher</h3><p>Exklusive postoperative Betreuung, bis Ihre Patient*innen sicher nach Hause gehen.</p></div>
+      </a>
+      <div class="tile wide reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17l1.5-6h9L18 17"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M12 4v4M10 6h4"/></svg></div>
+        <div><h3>Mobil zu Ihnen</h3><p>Sie operieren, wir kümmern uns um die Narkose. Flexibel, zuverlässig und diskret.</p></div>
       </div>
-      <div class="card reveal delay-1">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
-        <h3>Präoperative Abklärung</h3><p>Individuelles Vorgespräch und sorgfältige Abklärung vor jedem Eingriff.</p>
-      </div>
-      <div class="card reveal delay-2">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <h3>Intraoperative Anästhesie</h3><p>Moderne Narkoseverfahren und kontinuierliches Monitoring während der OP.</p>
-      </div>
-      <div class="card reveal delay-3">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
-        <h3>Postoperative Betreuung</h3><p>Exklusive Nachbetreuung, bis Sie sicher und entspannt nach Hause gehen.</p>
-      </div>
+      <a href="ueber-uns.html" class="tile wide reveal d1" style="background:var(--white);border:1px solid rgba(18,44,55,.08)">
+        <div class="icon" style="background:var(--light)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div>
+        <div><h3>Das Team dahinter</h3><p>Erfahren, empathisch und mit Leidenschaft für unseren Beruf.</p><span class="link-arrow">Über uns →</span></div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ABLAUF -->
-<section id="ablauf" class="process">
-  <div class="container" style="text-align:center">
-    <span class="eyebrow reveal">So arbeiten wir</span>
-    <h2 class="section-title reveal">Betreuung in drei Schritten</h2>
-    <div class="steps">
-      <div class="step reveal"><div class="step-num">01</div><h3>Vorher</h3><p>Gesundheitsfragebogen, Aufklärung und persönliches Gespräch.</p></div>
-      <div class="step reveal delay-1"><div class="step-num">02</div><h3>Während</h3><p>Sichere Narkose mit modernster Überwachung aller Vitalwerte.</p></div>
-      <div class="step reveal delay-2"><div class="step-num">03</div><h3>Nachher</h3><p>Aufmerksame Nachbetreuung, bis Sie sich wieder wohlfühlen.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- FACHBEREICHE -->
-<section id="fachbereiche">
-  <div class="container split">
-    <div>
-      <span class="eyebrow reveal">Für Partner*innen</span>
-      <h2 class="section-title reveal">Ein Team, viele Fachbereiche.</h2>
-      <p class="lead reveal">Wir kommen zu Ihnen in die Praxis und sorgen für einen reibungslosen Ablauf, damit Sie sich ganz auf den Eingriff konzentrieren können.</p>
-    </div>
-    <ul class="list">
-      <li class="reveal">Alle gängigen ambulanten chirurgischen Disziplinen</li>
-      <li class="reveal delay-1">Zahnmedizinische Eingriffe</li>
-      <li class="reveal delay-2">Kardiologische Interventionen</li>
-      <li class="reveal delay-3">Diagnostische Eingriffe</li>
-    </ul>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="process">
+<section class="bg-light">
   <div class="container">
-    <div style="text-align:center">
-      <span class="eyebrow reveal">FAQ</span>
-      <h2 class="section-title reveal">Haben Sie noch Fragen?</h2>
+    <div class="center">
+      <span class="eyebrow reveal">Für wen</span>
+      <h2 class="title reveal">Wir sind für Sie da.</h2>
     </div>
-    <div class="faq reveal">
-      <details><summary>Muss ich vor der Narkose nüchtern sein?</summary><p>Ja. Die genauen Zeiten besprechen wir mit Ihnen im Vorgespräch. (Beispieltext)</p></details>
-      <details><summary>Darf ich nach dem Eingriff selbst nach Hause fahren?</summary><p>Nein, bitte lassen Sie sich abholen und begleiten. (Beispieltext)</p></details>
-      <details><summary>Wo finde ich den Gesundheitsfragebogen?</summary><p>Alle Dokumente finden Sie im Download-Bereich. (Beispieltext)</p></details>
+    <div class="duo" style="margin-top:50px">
+      <a href="partner.html" class="one reveal">
+        <svg class="big-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-4h6v4M9 7h1M14 7h1M9 11h1M14 11h1"/></svg>
+        <h3>Für Partner*innen</h3>
+        <p>Praxen, OP-Zentren und Spitäler: Narkose ohne eigenen Aufwand.</p>
+        <span class="link-arrow" style="color:#fff;margin-top:18px">Mehr erfahren →</span>
+      </a>
+      <a href="patienten.html" class="two reveal d1">
+        <svg class="big-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <h3>Für Patient*innen</h3>
+        <p>Alles zur Vorbereitung, zum Ablauf und die wichtigsten Dokumente.</p>
+        <span class="link-arrow" style="color:#fff;margin-top:18px">Mehr erfahren →</span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- KONTAKT -->
-<section id="kontakt">
+<section>
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow reveal">Unsere Partner*innen</span>
+      <h2 class="title reveal">Sie vertrauen uns.</h2>
+    </div>
+    <div class="partners"><a class="partner reveal d0" href="https://dromar.ch" target="_blank" rel="noopener">dromar.ch</a><a class="partner reveal d1" href="https://dermanence.ch" target="_blank" rel="noopener">dermanence.ch</a><a class="partner reveal d2" href="https://drrichardfakin.com" target="_blank" rel="noopener">drrichardfakin.com</a><a class="partner reveal d3" href="https://praxis-drlahoda.ch" target="_blank" rel="noopener">praxis-drlahoda.ch</a><a class="partner reveal d0" href="https://redeker.ch" target="_blank" rel="noopener">redeker.ch</a></div>
+  </div>
+</section>
+
+<section style="padding-bottom:0">
   <div class="container">
     <div class="cta reveal">
-      <div>
-        <h2>Lassen Sie uns zusammenarbeiten.</h2>
-        <p>Rufen Sie uns an oder schreiben Sie uns. Wir melden uns schnell und persönlich.</p>
-      </div>
-      <div class="contact-list">
-        <a href="tel:+41768444554">📞 +41 76 844 45 54</a>
-        <a href="https://wa.me/41768444554" target="_blank" rel="noopener">💬 WhatsApp</a>
-        <a href="mailto:info@narkose-team.ch">✉️ info@narkose-team.ch</a>
-        <div>📍 Hauptstrasse 16 A, 8272 Ermatingen</div>
+      <div><h2>Lassen Sie uns zusammenarbeiten.</h2><p>Rufen Sie uns an oder schreiben Sie uns. Wir melden uns schnell und persönlich.</p></div>
+      <div class="hero-actions">
+        <a class="btn btn-white" href="kontakt.html">Kontakt aufnehmen →</a>
+        <a class="btn btn-outline" href="tel:+41768444554">+41 76 844 45 54</a>
       </div>
     </div>
   </div>
 </section>
 
-<footer>© <span id="year"></span> narkose-team.ch · Impressum · Datenschutz</footer>
 
-<script>
-  // Header wird beim Scrollen weiss und kompakt
-  const header = document.getElementById('header');
-  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 30));
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div><a href="index.html" class="logo">narkose<svg viewBox="0 0 34 20" fill="none"><path d="M1 11h9l3-6 4 11 3-8 2 3h11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>team.ch</a><p>Ihr ambulantes Narkose-Team.<br>persönlich. mobil. exklusiv.</p></div>
+      <div><h4>Seiten</h4><ul><li><a href="ueber-uns.html">Über uns</a></li><li><a href="anaesthesie.html">Anästhesie</a></li><li><a href="partner.html">Partner*innen</a></li><li><a href="patienten.html">Patient*innen</a></li></ul></div>
+      <div><h4>Service</h4><ul><li><a href="patienten.html#downloads">Downloads</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+      <div><h4>Kontakt</h4><ul><li><a href="tel:+41768444554">+41 76 844 45 54</a></li><li><a href="mailto:info@narkose-team.ch">info@narkose-team.ch</a></li><li>Hauptstrasse 16 A<br>8272 Ermatingen</li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© <span class="year"></span> narkose-team.ch</span><span>Impressum · Datenschutz</span></div>
+  </div>
+</footer>
 
-  // Mobile Menü
-  const navLinks = document.getElementById('navLinks');
-  document.getElementById('menuBtn').onclick = () => navLinks.classList.toggle('open');
-  navLinks.querySelectorAll('a').forEach(a => a.onclick = () => navLinks.classList.remove('open'));
-
-  // Elemente sanft einblenden, sobald sie sichtbar werden
-  const observer = new IntersectionObserver(entries => entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-  }), { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Puls auf dem Monitor leicht schwanken lassen
-  const hr = document.getElementById('hr');
-  setInterval(() => hr.textContent = 68 + Math.floor(Math.random() * 8), 1500);
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<script src="script.js"></script>
 </body>
 </html>

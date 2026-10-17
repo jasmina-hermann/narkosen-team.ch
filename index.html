@@ -2,159 +2,208 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>narkose-team.ch – Ihr ambulantes Narkose-Team</title>
-<meta name="description" content="Ambulante Anästhesie für Praxen, OP-Zentren und Spitäler. persönlich. mobil. exklusiv.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>narkose-team.ch – simple smooth safe</title>
+<meta name="description" content="Das narkose-team – Ihr kompetenter Partner rund um die Narkose. persönlich. mobil. exklusiv.">
+<meta name="theme-color" content="#08344f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="bilder/hero.jpg" imagesrcset="bilder/hero-klein.jpg 960w, bilder/hero.jpg 1683w" imagesizes="(max-aspect-ratio: 4/5) 100vh, 100vw">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <nav class="container nav">
-    <a href="index.html" class="logo">narkose<svg viewBox="0 0 34 20" fill="none"><path d="M1 11h9l3-6 4 11 3-8 2 3h11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>team.ch</a>
-    <ul class="nav-links">
+<!-- ============ MENÜ (durchsichtig über dem Bild) ============ -->
+<header class="kopf">
+  <nav class="container nav" aria-label="Hauptmenü">
+    <a href="index.html" class="logo" aria-label="narkose-team.ch Startseite">narkose<svg viewBox="0 0 34 20" fill="none" aria-hidden="true"><path d="M1 11h9l3-6 4 11 3-8 2 3h11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>team.ch</a>
+
+    <ul class="menu" id="menu">
       <li><a href="ueber-uns.html">Über uns</a></li>
-      <li><a href="anaesthesie.html">Anästhesie</a></li>
-      <li><a href="partner.html">Partner*innen</a></li>
-      <li><a href="patienten.html">Patient*innen</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li class="hat-unter">
+        <a href="ambulante-anaesthesie.html">Ambulante Anästhesie<svg class="pfeil" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <ul class="unter">
+          <li><a href="praeoperative-abklaerung.html">Individuelle präoperative Abklärung</a></li>
+          <li><a href="intraoperative-anaesthesie.html">Moderne intraoperative Anästhesie</a></li>
+          <li><a href="postoperative-betreuung.html">Exklusive postoperative Betreuung</a></li>
+        </ul>
+      </li>
+      <li><a href="partner.html">Für Partner*innen</a></li>
+      <li><a href="patienten.html">Für Patient*innen</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li><a href="karriere.html">Karriere</a></li>
+      <li class="nur-handy"><a href="kontakt.html">Kontakt</a></li>
     </ul>
-    <button class="menu-btn" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+
+    <a class="knopf-kontakt" href="kontakt.html">Kontakt</a>
+    <button class="menu-knopf" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   </nav>
 </header>
 
+<main>
+<!-- ============ HERO (auf allen Seiten gleich) ============ -->
 <section class="hero">
-  <svg class="hero-line" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 90 H180 L200 70 L220 90 H300 L320 20 L345 150 L365 90 H520 L545 65 L575 90 H700 L720 20 L745 150 L765 90 H920 L945 65 L975 90 H1200"/>
-  </svg>
-  <div class="container hero-content">
-    <h1><span class="word">simple.</span> <span class="word">smooth.</span> <span class="word soft">safe.</span></h1>
-    <div class="hero-sub">
-      <p>Ihr ambulantes Narkose-Team für Arztpraxen, ambulante Operationszentren und Spitäler. Wir kommen zu Ihnen.</p>
-      <div class="hero-actions">
-        <a class="btn btn-white" href="kontakt.html">Anfrage stellen →</a>
-        <a class="btn btn-outline" href="#leistungen">Was wir machen</a>
-      </div>
-    </div>
+  <div class="buehne">
+    <img src="bilder/hero.jpg" srcset="bilder/hero-klein.jpg 960w, bilder/hero.jpg 1683w" sizes="(max-aspect-ratio: 4/5) 100vh, 100vw"
+         alt="Frau mit einer Wolke als Kopf sitzt auf einem Sockel vor blauem Himmel" width="1683" height="935" fetchpriority="high">
+    <h1 class="claim"><span>simple</span><span>smooth</span><span>safe</span></h1>
+    <!-- feine Herzlinie, die sich bewegt -->
+    <svg class="puls" viewBox="0 0 1000 80" preserveAspectRatio="none" aria-hidden="true">
+      <path class="puls-grund" pathLength="1000" d="M0 44 H120 L132 44 L140 30 L150 58 L160 8 L172 72 L182 38 L190 44 H520 L532 44 L540 30 L550 58 L560 8 L572 72 L582 38 L590 44 H1000"/>
+      <path class="puls-licht" pathLength="1000" d="M0 44 H120 L132 44 L140 30 L150 58 L160 8 L172 72 L182 38 L190 44 H520 L532 44 L540 30 L550 58 L560 8 L572 72 L582 38 L590 44 H1000"/>
+    </svg>
   </div>
 </section>
 
-<div class="container monitor-wrap">
-  <div class="monitor reveal" aria-hidden="true">
-    <div class="monitor-top"><span class="live">Live-Monitoring</span><span>narkose-team.ch</span></div>
-    <div class="screen">
-      <span class="wave-label" style="top:10px;color:#4ade80">EKG II</span>
-      <span class="wave-label" style="top:62%;color:#7dd3fc">SpO₂</span>
-      <canvas id="monitor" width="1100" height="300"></canvas>
+<!-- ============ AB HIER: RUHIGER INHALT ============ -->
+<div class="inhalt">
+
+  <div class="luft" aria-hidden="true"></div>
+  <section class="teil bild-rechts">
+    <div class="teil-bild"><img src="bilder/kerstin-op-1400.jpg" srcset="bilder/kerstin-op-800.jpg 800w, bilder/kerstin-op-1400.jpg 1400w" sizes="(max-width: 720px) 100vw, 50vw" alt="Kerstin Reichert in OP-Kleidung" width="1400" height="1750" loading="lazy" style="object-position: 50% 20%"></div>
+    <div class="teil-text">
+      <div class="herzlinie" aria-hidden="true"><svg viewBox="0 0 40 34"><path d="M0 17 H8 L13 30 L24 3 L29 18 H40"/></svg></div>
+
+      <p class="kapitaelchen zeige">narkose-team.ch</p>
+      <h2 class="titel zeige" style="margin-top:22px">persönlich. mobil. <em>exklusiv.</em></h2>
+      <p class="serif-lead zeige">Das narkose-team – Ihr kompetenter Partner rund um die Narkose.</p>
+      <div class="fliess zeige">
+        <p>Wir vom <strong>narkose-team.ch</strong> verstehen uns als professionellen Partner sowohl für Arztpraxen als auch für ambulante OP-Zentren und Spitäler.</p>
+        <p>Wir betreuen unsere Patient*innen ganzheitlich und individuell im Rahmen ambulanter Operationen oder diagnostischer Eingriffe vor, während und nach der Narkose mit neuester Technik und modernsten Überwachungsmethoden durch ein erfahrenes anästhesiologisches Behandlungsteam, welches sich der Sicherheit und dem Wohlbefinden unserer Patient*innen verschrieben hat.</p>
+      </div>
     </div>
-    <div class="vitals">
-      <div class="vital"><small>Herzfrequenz</small><b style="color:#4ade80"><span id="hr">72</span><span class="heart" id="heart">♥</span></b></div>
-      <div class="vital"><small>SpO₂</small><b style="color:#7dd3fc"><span id="spo2">99%</span></b></div>
-      <div class="vital"><small>Blutdruck</small><b id="bp">118/76</b></div>
+  </section>
+
+  <section class="teil bild-links">
+    <div class="teil-bild"><img src="bilder/gunnar-op-1400.jpg" srcset="bilder/gunnar-op-800.jpg 800w, bilder/gunnar-op-1400.jpg 1400w" sizes="(max-width: 720px) 100vw, 50vw" alt="Dr. med. Gunnar Heller in OP-Kleidung" width="1400" height="1750" loading="lazy" style="object-position: 50% 22%"></div>
+    <div class="teil-text">
+      <div class="herzlinie" aria-hidden="true"><svg viewBox="0 0 40 34"><path d="M0 17 H8 L13 30 L24 3 L29 18 H40"/></svg></div>
+
+      <p class="kapitaelchen zeige">Ambulante Anästhesie</p>
+      <h2 class="titel zeige" style="margin-top:22px;font-size:clamp(2rem,3.2vw,3rem)">Wir decken dabei umfangreiche medizinische <em>Fachbereiche</em> ab:</h2>
+      <ol class="liste zeige">
+        <li><span class="nr">I</span><span>Alle im ambulanten Bereich gängigen chirurgischen Disziplinen</span></li>
+        <li><span class="nr">II</span><span>Zahnärztliche Eingriffe</span></li>
+        <li><span class="nr">III</span><span>Kardiologische Interventionen</span></li>
+      </ol>
+      <div class="fliess zeige"><p>Wir schaffen für unsere Patient*innen und Kooperationspartner*innen ein angenehmes und stressfreies Umfeld.</p></div>
+      <div class="knopf-reihe zeige"><a class="edel-knopf" href="ambulante-anaesthesie.html">Informieren Sie sich über unser Leistungsangebot.</a></div>
+      <p class="serif-lead zeige"><em>Wir freuen uns auf Sie!</em></p>
     </div>
-  </div>
+  </section>
+
+  <section class="ruhe" aria-labelledby="staerken">
+    <div class="breit">
+      <svg class="herz-zeichen zeige" viewBox="0 0 150 64" aria-hidden="true"><rect class="balken" x="0" y="0" width="14" height="64"/><path d="M14 30 H70 L78 52 L94 8 L101 32 H150"/></svg>
+      <h2 id="staerken" class="kapitaelchen zeige">Unsere Stärken</h2>
+      <p class="werte-text zeige">
+        achtsam&nbsp;<i>·</i> sicher&nbsp;<i>·</i> anspruchsvoll&nbsp;<i>·</i> <em>exklusiv</em>&nbsp;<i>·</i> individuell&nbsp;<i>·</i> diskret&nbsp;<i>·</i> persönlich&nbsp;<i>·</i> mobil&nbsp;<i>·</i> erfahren&nbsp;<i>·</i> <em>empathisch</em>&nbsp;<i>·</i> lösungsorientiert&nbsp;<i>·</i> flexibel&nbsp;<i>·</i> zuverlässig&nbsp;<i>·</i> fokussiert&nbsp;<i>·</i> <em>vertrauensvoll</em>&nbsp;<i>·</i> kundenorientiert&nbsp;<i>·</i> kooperativ&nbsp;<i>·</i> überlegt&nbsp;<i>·</i> <em>leidenschaftlich</em>
+      </p>
+    </div>
+  </section>
+  <div class="herzband" aria-hidden="true"><svg viewBox="0 0 54 50"><path d="M0 25 H10 L17 42 L31 6 L38 26 H54"/></svg></div>
+  <section class="ruhe">
+    <div class="schmal">
+      <h2 class="titel-gross zeige">Wir können mehr <em>als Narkose.</em></h2>
+      <p class="serif-lead zeige">Wir bieten eine maximale Betreuung rund um die perioperative Anästhesie.</p>
+      <div class="knopf-reihe zeige" style="justify-content:center">
+        <a class="edel-knopf voll" href="ambulante-anaesthesie.html">Mehr</a>
+        <a class="edel-knopf" href="patienten.html#stimmen">Patient*innen-Stimmen</a>
+      </div>
+    </div>
+  </section>
+  <section class="ruhe" style="padding-top:0">
+    <div class="breit">
+      <h2 class="titel zeige">Unsere <em>Partner*innen.</em></h2>
+      <ul class="partner-reihe zeige">
+        <li><a href="https://dromar.ch/" target="_blank" rel="noopener"><img class="partner-logo" src="bilder/partner/dromar.png" alt="dromar.ch" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>dromar.ch</span></a></li>
+        <li><a href="https://dermanence.ch/%C3%A4sthetik" target="_blank" rel="noopener"><img class="partner-logo" src="bilder/partner/dermanence.png" alt="dermanence.ch" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>dermanence.ch</span></a></li>
+        <li><a href="https://drrichardfakin.com/" target="_blank" rel="noopener"><img class="partner-logo" src="bilder/partner/drrichardfakin.png" alt="drrichardfakin.com" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>drrichardfakin.com</span></a></li>
+        <li><a href="https://www.praxis-drlahoda.ch/" target="_blank" rel="noopener"><img class="partner-logo" src="bilder/partner/praxis-drlahoda.png" alt="praxis-drlahoda.ch" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>praxis-drlahoda.ch</span></a></li>
+        <li><a href="https://redeker.ch/uber-mich/" target="_blank" rel="noopener"><img class="partner-logo" src="bilder/partner/redeker.png" alt="redeker.ch" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>redeker.ch</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="herzband" aria-hidden="true"><svg viewBox="0 0 54 50"><path d="M0 25 H10 L17 42 L31 6 L38 26 H54"/></svg></div>
+  <section class="fragen">
+    <div class="schmal">
+      <h2 class="titel zeige">Haben Sie noch <em>Fragen?</em></h2>
+      <div class="fliess zeige mitte">
+        <p>Wir stehen Ihnen gerne zur Verfügung.<br>Rufen Sie uns gerne an oder verwenden Sie unser Kontaktformular.</p>
+      </div>
+      <a class="telefon zeige" href="tel:+41768444554">+41 76 844 45 54</a>
+      <div class="knopf-reihe zeige" style="justify-content:center">
+        <a class="edel-knopf voll" href="kontakt.html">Kontakt</a>
+      </div>
+      <p class="kapitaelchen sozial-titel zeige">We are on social media</p>
+      <p class="sozial zeige">
+        <a href="https://www.instagram.com/narkose_Team.ch/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/company/narkose-team-ch-gmbh/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://wa.me/41768444554" target="_blank" rel="noopener">WhatsApp</a>
+      </p>
+    </div>
+  </section>
+
 </div>
+</main>
 
-<section id="leistungen">
-  <div class="container">
-    <span class="eyebrow reveal">Was wir machen</span>
-    <h2 class="title reveal">Sichere Narkose, dort wo Sie operieren.</h2>
-    <p class="lead reveal">Wir betreuen Ihre Patient*innen individuell und ganzheitlich vor, während und nach der Narkose, mit modernen Techniken und lückenloser Überwachung.</p>
-    <div class="bento">
-      <a href="anaesthesie.html" class="tile big reveal">
-        <span class="num">01</span>
-        <div>
-          <h3>Ambulante Anästhesie</h3>
-          <p>Unser erfahrenes Team kommt mit eigener, moderner Ausrüstung in Ihre Praxis, Ihr OP-Zentrum oder Ihr Spital.</p>
-        </div>
-        <div class="chips"><span>Chirurgie</span><span>Zahnmedizin</span><span>Kardiologie</span><span>Diagnostik</span></div>
-      </a>
-      <a href="anaesthesie.html#vorher" class="tile reveal d1">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
-        <div><h3>Vorher</h3><p>Individuelle präoperative Abklärung.</p></div>
-      </a>
-      <a href="anaesthesie.html#waehrend" class="tile reveal d2">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-        <div><h3>Während</h3><p>Moderne intraoperative Anästhesie.</p></div>
-      </a>
-      <a href="anaesthesie.html#nachher" class="tile wide accent reveal d1">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
-        <div><h3>Nachher</h3><p>Exklusive postoperative Betreuung, bis Ihre Patient*innen sicher nach Hause gehen.</p></div>
-      </a>
-      <div class="tile wide reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17l1.5-6h9L18 17"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M12 4v4M10 6h4"/></svg></div>
-        <div><h3>Mobil zu Ihnen</h3><p>Sie operieren, wir kümmern uns um die Narkose. Flexibel, zuverlässig und diskret.</p></div>
+<!-- ============ FOOTER mit Wolken und dem Hero-Bild ============ -->
+<footer class="fuss">
+  <div class="wolken" aria-hidden="true"></div>
+
+  <div class="fuss-bild">
+    <img src="bilder/hero.jpg" srcset="bilder/hero-klein.jpg 960w, bilder/hero.jpg 1683w" sizes="100vw" alt="" width="1683" height="935" loading="lazy">
+  </div>
+
+  <div class="container fuss-inhalt">
+    <div class="fuss-spalten">
+      <div class="fuss-marke">
+        <a href="index.html" class="logo">narkose<svg viewBox="0 0 34 20" fill="none" aria-hidden="true"><path d="M1 11h9l3-6 4 11 3-8 2 3h11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>team.ch</a>
+        <p>simple smooth safe</p>
       </div>
-      <a href="ueber-uns.html" class="tile wide reveal d1" style="background:var(--white);border:1px solid rgba(18,44,55,.08)">
-        <div class="icon" style="background:var(--light)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div>
-        <div><h3>Das Team dahinter</h3><p>Erfahren, empathisch und mit Leidenschaft für unseren Beruf.</p><span class="link-arrow">Über uns →</span></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="bg-light">
-  <div class="container">
-    <div class="center">
-      <span class="eyebrow reveal">Für wen</span>
-      <h2 class="title reveal">Wir sind für Sie da.</h2>
-    </div>
-    <div class="duo" style="margin-top:50px">
-      <a href="partner.html" class="one reveal">
-        <svg class="big-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-4h6v4M9 7h1M14 7h1M9 11h1M14 11h1"/></svg>
-        <h3>Für Partner*innen</h3>
-        <p>Praxen, OP-Zentren und Spitäler: Narkose ohne eigenen Aufwand.</p>
-        <span class="link-arrow" style="color:#fff;margin-top:18px">Mehr erfahren →</span>
-      </a>
-      <a href="patienten.html" class="two reveal d1">
-        <svg class="big-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg>
-        <h3>Für Patient*innen</h3>
-        <p>Alles zur Vorbereitung, zum Ablauf und die wichtigsten Dokumente.</p>
-        <span class="link-arrow" style="color:#fff;margin-top:18px">Mehr erfahren →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="center">
-      <span class="eyebrow reveal">Unsere Partner*innen</span>
-      <h2 class="title reveal">Sie vertrauen uns.</h2>
-    </div>
-    <div class="partners"><a class="partner reveal d0" href="https://dromar.ch" target="_blank" rel="noopener">dromar.ch</a><a class="partner reveal d1" href="https://dermanence.ch" target="_blank" rel="noopener">dermanence.ch</a><a class="partner reveal d2" href="https://drrichardfakin.com" target="_blank" rel="noopener">drrichardfakin.com</a><a class="partner reveal d3" href="https://praxis-drlahoda.ch" target="_blank" rel="noopener">praxis-drlahoda.ch</a><a class="partner reveal d0" href="https://redeker.ch" target="_blank" rel="noopener">redeker.ch</a></div>
-  </div>
-</section>
-
-<section style="padding-bottom:0">
-  <div class="container">
-    <div class="cta reveal">
-      <div><h2>Lassen Sie uns zusammenarbeiten.</h2><p>Rufen Sie uns an oder schreiben Sie uns. Wir melden uns schnell und persönlich.</p></div>
-      <div class="hero-actions">
-        <a class="btn btn-white" href="kontakt.html">Kontakt aufnehmen →</a>
-        <a class="btn btn-outline" href="tel:+41768444554">+41 76 844 45 54</a>
+      <div>
+        <h3>Unternehmen</h3>
+        <ul>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="ambulante-anaesthesie.html">Ambulante Anästhesie</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="partner.html">Für Partner*innen</a></li>
+          <li><a href="patienten.html">Für Patient*innen</a></li>
+          <li><a href="karriere.html">Karriere</a></li>
+          <li><a href="https://narkose-team.ch/faq/">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Downloads</h3>
+        <ul>
+          <li><a href="https://narkose-team.ch/wp-content/uploads/2024/11/Gesundheitsfragebogen.pdf" target="_blank" rel="noopener">Gesundheitsfragebogen</a></li>
+          <li><a href="https://narkose-team.ch/wp-content/uploads/2024/11/Patientenaufklarung.pdf" target="_blank" rel="noopener">Patientenaufklärung</a></li>
+          <li><a href="https://narkose-team.ch/wp-content/uploads/2024/11/questionnaire-1.pdf" target="_blank" rel="noopener">Questionnaire</a></li>
+          <li><a href="https://narkose-team.ch/wp-content/uploads/2024/11/Decleration_of_consent.pdf" target="_blank" rel="noopener">Declaration of Consent</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Datenschutz</h3>
+        <ul>
+          <li><a href="https://narkose-team.ch/impressum/">Impressum</a></li>
+          <li><a href="https://narkose-team.ch/datenschutzerklarung/">Datenschutzerklärung</a></li>
+          <li><a href="https://narkose-team.ch/datenschutzerklarung/#Cookies">Cookies</a></li>
+        </ul>
       </div>
     </div>
   </div>
-</section>
 
-
-<footer>
-  <div class="container">
-    <div class="foot">
-      <div><a href="index.html" class="logo">narkose<svg viewBox="0 0 34 20" fill="none"><path d="M1 11h9l3-6 4 11 3-8 2 3h11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>team.ch</a><p>Ihr ambulantes Narkose-Team.<br>persönlich. mobil. exklusiv.</p></div>
-      <div><h4>Seiten</h4><ul><li><a href="ueber-uns.html">Über uns</a></li><li><a href="anaesthesie.html">Anästhesie</a></li><li><a href="partner.html">Partner*innen</a></li><li><a href="patienten.html">Patient*innen</a></li></ul></div>
-      <div><h4>Service</h4><ul><li><a href="patienten.html#downloads">Downloads</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
-      <div><h4>Kontakt</h4><ul><li><a href="tel:+41768444554">+41 76 844 45 54</a></li><li><a href="mailto:info@narkose-team.ch">info@narkose-team.ch</a></li><li>Hauptstrasse 16 A<br>8272 Ermatingen</li></ul></div>
-    </div>
-    <div class="foot-bottom"><span>© <span class="year"></span> narkose-team.ch</span><span>Impressum · Datenschutz</span></div>
-  </div>
+  <p class="copy">© narkose-team.ch <span class="jahr">2024</span></p>
 </footer>
 
+<!-- WhatsApp: wandert beim Scrollen am rechten Rand mit -->
+<div class="wa-schiene" aria-hidden="true"></div>
+<a class="wa-knopf" href="https://wa.me/41768444554" target="_blank" rel="noopener" aria-label="Schreiben Sie uns auf WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C8.86 3 3.03 8.82 3.03 15.99c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75a13 13 0 0 0 6.36 1.62h.01c7.17 0 13-5.83 13-13S23.21 3 16.04 3Zm0 23.68h-.01c-1.95 0-3.86-.52-5.53-1.51l-.4-.24-3.96 1.04 1.06-3.86-.26-.4a10.7 10.7 0 0 1-1.65-5.72c0-5.94 4.83-10.78 10.77-10.78 5.94 0 10.77 4.84 10.77 10.78 0 5.94-4.84 10.69-10.79 10.69Zm5.9-8.07c-.32-.16-1.92-.95-2.22-1.06-.3-.11-.51-.16-.73.16-.21.32-.84 1.06-1.03 1.27-.19.22-.38.24-.7.08-.32-.16-1.37-.5-2.6-1.6-.96-.86-1.61-1.92-1.8-2.24-.19-.32-.02-.5.14-.66.15-.14.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.55-.73-.56h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.69s1.16 3.12 1.32 3.33c.16.22 2.28 3.48 5.52 4.88.77.33 1.37.53 1.84.68.77.25 1.48.21 2.03.13.62-.09 1.92-.78 2.19-1.54.27-.76.27-1.41.19-1.54-.08-.14-.3-.22-.62-.38Z"/></svg>
+  <span class="wa-text">WhatsApp</span>
+</a>
 <script src="script.js"></script>
 </body>
 </html>

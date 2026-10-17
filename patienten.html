@@ -2,93 +2,208 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Für Patient*innen – narkose-team.ch</title>
-<meta name="description" content="Informationen und Dokumente für Patient*innen.">
+<meta name="description" content="Alle wichtigen Informationen zu unseren Anästhesieleistungen, Gesundheitsfragebogen und Patient*innen-Stimmen.">
+<meta name="theme-color" content="#08344f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="bilder/hero.jpg" imagesrcset="bilder/hero-klein.jpg 960w, bilder/hero.jpg 1683w" imagesizes="(max-aspect-ratio: 4/5) 100vh, 100vw">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <nav class="container nav">
-    <a href="index.html" class="logo">narkose<svg viewBox="0 0 34 20" fill="none"><path d="M1 11h9l3-6 4 11 3-8 2 3h11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>team.ch</a>
-    <ul class="nav-links">
+<!-- ============ MENÜ (durchsichtig über dem Bild) ============ -->
+<header class="kopf">
+  <nav class="container nav" aria-label="Hauptmenü">
+    <a href="index.html" class="logo" aria-label="narkose-team.ch Startseite">narkose<svg viewBox="0 0 34 20" fill="none" aria-hidden="true"><path d="M1 11h9l3-6 4 11 3-8 2 3h11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>team.ch</a>
+
+    <ul class="menu" id="menu">
       <li><a href="ueber-uns.html">Über uns</a></li>
-      <li><a href="anaesthesie.html">Anästhesie</a></li>
-      <li><a href="partner.html">Partner*innen</a></li>
-      <li><a href="patienten.html">Patient*innen</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li class="hat-unter">
+        <a href="ambulante-anaesthesie.html">Ambulante Anästhesie<svg class="pfeil" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <ul class="unter">
+          <li><a href="praeoperative-abklaerung.html">Individuelle präoperative Abklärung</a></li>
+          <li><a href="intraoperative-anaesthesie.html">Moderne intraoperative Anästhesie</a></li>
+          <li><a href="postoperative-betreuung.html">Exklusive postoperative Betreuung</a></li>
+        </ul>
+      </li>
+      <li><a href="partner.html">Für Partner*innen</a></li>
+      <li><a href="patienten.html" aria-current="page">Für Patient*innen</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li><a href="karriere.html">Karriere</a></li>
+      <li class="nur-handy"><a href="kontakt.html">Kontakt</a></li>
     </ul>
-    <button class="menu-btn" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+
+    <a class="knopf-kontakt" href="kontakt.html">Kontakt</a>
+    <button class="menu-knopf" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   </nav>
 </header>
 
-<section class="page-hero">
-  <div class="container">
-    <div class="crumbs"><a href="index.html">Start</a> / Patient*innen</div>
-    <h1>Gut vorbereitet in die Narkose.</h1>
-    <p>Hier finden Sie alles, was Sie vor und nach Ihrem Eingriff wissen müssen.</p>
-  </div>
-</section>
-<section>
-  <div class="container">
-    <div class="center">
-      <span class="eyebrow reveal">Ihre Checkliste</span>
-      <h2 class="title reveal">Das Wichtigste auf einen Blick.</h2>
-      <p class="lead reveal">Bitte beachten Sie immer die persönlichen Anweisungen aus Ihrem Aufklärungsgespräch. (Beispieltexte)</p>
-    </div>
-    <div class="checks">
-      <div class="check reveal"><h3>Vor dem Eingriff</h3><ul class="ticks"><li>Gesundheitsfragebogen ausfüllen</li><li>Nüchtern bleiben, wie besprochen</li><li>Medikamentenliste mitbringen</li></ul></div>
-      <div class="check reveal d1"><h3>Am OP-Tag</h3><ul class="ticks"><li>Bequeme Kleidung tragen</li><li>Kein Schmuck, kein Nagellack</li><li>Begleitperson organisieren</li></ul></div>
-      <div class="check reveal d2"><h3>Nach dem Eingriff</h3><ul class="ticks"><li>Nicht selbst Auto fahren</li><li>24 Stunden nicht allein sein</li><li>Bei Fragen jederzeit anrufen</li></ul></div>
-    </div>
+<main>
+<!-- ============ HERO (auf allen Seiten gleich) ============ -->
+<section class="hero">
+  <div class="buehne">
+    <img src="bilder/hero.jpg" srcset="bilder/hero-klein.jpg 960w, bilder/hero.jpg 1683w" sizes="(max-aspect-ratio: 4/5) 100vh, 100vw"
+         alt="Frau mit einer Wolke als Kopf sitzt auf einem Sockel vor blauem Himmel" width="1683" height="935" fetchpriority="high">
+    <p class="claim"><span>simple</span><span>smooth</span><span>safe</span></p>
+    <!-- feine Herzlinie, die sich bewegt -->
+    <svg class="puls" viewBox="0 0 1000 80" preserveAspectRatio="none" aria-hidden="true">
+      <path class="puls-grund" pathLength="1000" d="M0 44 H120 L132 44 L140 30 L150 58 L160 8 L172 72 L182 38 L190 44 H520 L532 44 L540 30 L550 58 L560 8 L572 72 L582 38 L590 44 H1000"/>
+      <path class="puls-licht" pathLength="1000" d="M0 44 H120 L132 44 L140 30 L150 58 L160 8 L172 72 L182 38 L190 44 H520 L532 44 L540 30 L550 58 L560 8 L572 72 L582 38 L590 44 H1000"/>
+    </svg>
   </div>
 </section>
 
-<section class="bg-light" id="downloads" style="scroll-margin-top:60px">
-  <div class="container split" style="align-items:start">
-    <div>
-      <span class="eyebrow reveal">Downloads</span>
-      <h2 class="title reveal">Ihre Dokumente.</h2>
-      <p class="lead reveal">Bitte füllen Sie den Fragebogen vor dem Aufklärungsgespräch aus.</p>
-    </div>
-    <div class="downloads">
-      <a class="download reveal" href="#"><span class="file">PDF</span><span><b>Gesundheitsfragebogen</b><small>Deutsch</small></span><span class="arrow">↓</span></a>
-      <a class="download reveal" href="#"><span class="file">PDF</span><span><b>Patientenaufklärung</b><small>Deutsch</small></span><span class="arrow">↓</span></a>
-      <a class="download reveal" href="#"><span class="file">PDF</span><span><b>Questionnaire</b><small>English</small></span><span class="arrow">↓</span></a>
-      <a class="download reveal" href="#"><span class="file">PDF</span><span><b>Declaration of Consent</b><small>English</small></span><span class="arrow">↓</span></a>
-    </div>
-  </div>
-</section>
+<!-- ============ AB HIER: RUHIGER INHALT ============ -->
+<div class="inhalt">
 
-<section style="padding-bottom:0">
-  <div class="container">
-    <div class="cta reveal">
-      <div><h2>Haben Sie noch Fragen?</h2><p>Wir sind gerne für Sie da, auch per WhatsApp.</p></div>
-      <div class="hero-actions">
-        <a class="btn btn-white" href="kontakt.html">Kontakt aufnehmen →</a>
-        <a class="btn btn-outline" href="tel:+41768444554">+41 76 844 45 54</a>
+  <section class="auftakt">
+    <div class="schmal">
+      <svg class="herz-zeichen zeige" viewBox="0 0 150 64" aria-hidden="true"><rect class="balken" x="0" y="0" width="14" height="64"/><path d="M14 30 H70 L78 52 L94 8 L101 32 H150"/></svg>
+      <p class="kapitaelchen zeige">Für Patient*innen</p>
+      <h1 class="titel-gross zeige">Ihre Sicherheit und Ihr Wohlbefinden <em>im Mittelpunkt.</em></h1>
+
+      <div class="fliess zeige"><p>Willkommen auf der Patient*innenseite von narkose-team.ch. Hier möchten wir Ihnen alle wichtigen Informationen zu unseren Anästhesieleistungen bieten und Ihnen den Weg zu einer sicheren und komfortablen Behandlung erleichtern.</p></div>
+    </div>
+  </section>
+
+  <section class="teil bild-rechts">
+    <div class="teil-bild"><img src="bilder/kerstin-nah-1400.jpg" srcset="bilder/kerstin-nah-800.jpg 800w, bilder/kerstin-nah-1400.jpg 1400w" sizes="(max-width: 720px) 100vw, 50vw" alt="Kerstin Reichert" width="1400" height="1750" loading="lazy" style="object-position: 50% 30%"></div>
+    <div class="teil-text">
+      <div class="herzlinie" aria-hidden="true"><svg viewBox="0 0 40 34"><path d="M0 17 H8 L13 30 L24 3 L29 18 H40"/></svg></div>
+
+      <h2 class="titel zeige">Unsere Anästhesie&shy;dienstleistungen.</h2>
+      <div class="fliess zeige">
+        <p>Wir bei narkose-team.ch verstehen, dass der bevorstehende Eingriff und die Anästhesie Fragen und möglicherweise auch Sorgen hervorrufen können. Unser Ziel ist es, Ihnen ein Höchstmass an Sicherheit und Vertrauen zu bieten. Unsere erfahrenen Anästhesist*innen und Pflegefachpersonen setzen moderne Anästhesieverfahren ein, die individuell auf Ihre Bedürfnisse abgestimmt sind.</p>
+      </div>
+      <ol class="liste zeige">
+        <li><span class="nr">01.</span><a href="praeoperative-abklaerung.html">Individuelle präoperative Abklärung.</a></li>
+        <li><span class="nr">02.</span><a href="intraoperative-anaesthesie.html">Moderne intraoperative Anästhesie.</a></li>
+        <li><span class="nr">03.</span><a href="postoperative-betreuung.html">Exklusive postoperative Betreuung.</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="teil bild-links">
+    <div class="teil-bild formular-bild"><img src="bilder/gesundheitsfragebogen-seite1.jpg" alt="Erste Seite des Gesundheitsfragebogens von narkose-team.ch" width="910" height="1287" loading="lazy" style="object-position: 50% 18%"></div>
+    <div class="teil-text">
+      <div class="herzlinie" aria-hidden="true"><svg viewBox="0 0 40 34"><path d="M0 17 H8 L13 30 L24 3 L29 18 H40"/></svg></div>
+
+      <p class="kapitaelchen zeige">Download</p>
+      <h2 class="titel zeige" style="margin-top:22px">Gesundheits&shy;fragebogen</h2>
+      <ul class="dokumente zeige">
+        <li><a href="https://narkose-team.ch/wp-content/uploads/2024/11/Gesundheitsfragebogen.pdf" target="_blank" rel="noopener"><span class="name">Gesundheitsfragebogen</span><span class="art">PDF</span></a></li>
+        <li><a href="https://narkose-team.ch/wp-content/uploads/2024/11/Patientenaufklarung.pdf" target="_blank" rel="noopener"><span class="name">Patientenaufklärung<small>Einwilligung zur Narkose / Verhalten vor und nach Operationen</small></span><span class="art">PDF</span></a></li>
+      </ul>
+      <a class="text-link zeige" href="download.html">Download</a>
+    </div>
+  </section>
+
+  <div class="herzband" aria-hidden="true"><svg viewBox="0 0 54 50"><path d="M0 25 H10 L17 42 L31 6 L38 26 H54"/></svg></div>
+  <section class="ruhe">
+    <div class="schmal">
+      <h2 class="titel-gross zeige">Bei uns sind Sie in <em>guten Händen.</em></h2>
+      <p class="serif-lead zeige">Bei narkose-team.ch stehen Ihre Sicherheit und Ihr Wohlbefinden im Mittelpunkt. Unser erfahrenes Team garantiert eine professionelle Anästhesieversorgung, die auf modernster Technik basiert und individuell auf Ihre Bedürfnisse abgestimmt ist.</p>
+    </div>
+  </section>
+  <section class="ruhe" id="stimmen" style="padding-top:0">
+    <div class="breit">
+      <svg class="herz-zeichen zeige" viewBox="0 0 150 64" aria-hidden="true"><rect class="balken" x="0" y="0" width="14" height="64"/><path d="M14 30 H70 L78 52 L94 8 L101 32 H150"/></svg>
+      <h2 class="titel zeige" style="text-align:center">Patient*innen-<em>Stimmen.</em></h2>
+      <div class="stimmen">
+        <figure class="stimme zeige"><blockquote lang="de">Ihre Fürsorge und Umsorgung am Tag des Eingriffes haben mir diesen Eingriff so angenehm wie nur möglich gemacht.</blockquote><figcaption>Eveline, Bern 2024</figcaption></figure>
+        <figure class="stimme zeige v1"><blockquote lang="de">Ich war sehr zufrieden, kann nur sagen top Team, sehr nett, kompetent, sehr menschlich, hoch professionell und auch persönlich engagiert für Patienten. Ich würde mich wieder bei einer neuen OP an euch wenden. Wünsche dem ganzen Team nur das Beste.</blockquote><figcaption>Marketa, Zürich 2024</figcaption></figure>
+        <figure class="stimme zeige"><blockquote lang="de">Emotional hat mich Ihr Verhalten bis heute nachhaltig positiv beeinflusst, weil mir all meine Ängste durch Sie genommen wurden. Ich würde mir wünschen, dass jeder Mensch, welcher einen Eingriff vornehmen muss, so ein Anästhesieteam hat, wie ich es mit Ihnen hatte. Ohne Bedenken und ohne Zögern würde ich Sie immer wieder weiterempfehlen, und dürfte ich meinen Anästhesisten jederzeit wählen, wären es immer Sie.</blockquote><figcaption>Eveline, Bern 2024</figcaption></figure>
+        <figure class="stimme zeige v1"><blockquote lang="de">Das Team von Dr. Heller hat mich vor, während und nach der OP sehr gut informiert und betreut. Ich habe mich in sehr guten Händen gefühlt und kann das Team sehr empfehlen. Besonders erfreulich war, dass mehrfach persönlich durch den Anästhesisten direkter Kontakt zu mir gesucht wurde, um meine Fragen zu beantworten.</blockquote><figcaption>Katya, Thurgau 2024</figcaption></figure>
+        <figure class="stimme zeige"><blockquote lang="de">Das präoperative Gespräch fand telefonisch statt. Ich war sofort mit dem für mich zuständigen Arzt verbunden, sodass weitere Versuche, das Narkose-Team zu erreichen, erfreulicherweise nicht nötig waren. Alle meine Fragen wurden beantwortet, alle Anweisungen waren für mich verständlich. Insgesamt fand ich die Behandlung angenehm und vertrauenswürdig. Ich bin vollstens zufrieden.</blockquote><figcaption>Manuel, Thurgau 2024</figcaption></figure>
+        <figure class="stimme zeige v1"><blockquote lang="en">My experience was very positive.</blockquote><figcaption>Alexandra, Lissabon 2024</figcaption></figure>
+        <figure class="stimme zeige"><blockquote lang="de">Ein grosses Dankeschön an das Narkoseteam. Ich möchte mich ganz herzlich beim Team von Herrn Dr. med. Gunnar Heller bedanken. Vom ersten Gespräch bis zur Nachsorge fühlte ich mich rundum gut betreut. Die Ärzte haben sich viel Zeit genommen, um alle Fragen zu beantworten und mir die Narkosebehandlung verständlich zu erklären. Sie waren nicht nur professionell, sondern auch einfühlsam und beruhigend, was mir sehr geholfen hat, meine Nervosität zu überwinden. Das gesamte Team war sehr freundlich und einfühlsam. Es war ein sehr beruhigendes Gefühl, nie alleine zu sein, und ich fühlte mich zu jeder Zeit gut betreut und aufgehoben. Ich kann euch nur weiterempfehlen! Vielen Dank nochmals.</blockquote><figcaption>Tiziana, Glarus 2025</figcaption></figure>
+        <figure class="stimme zeige v1"><blockquote lang="de">Ich hatte eine Oberkiefer-OP, bei der ich durch das narkose-team super betreut wurde. Erstklassige Arbeit, ich kann das Team nur empfehlen. Herzlichen Dank, Kerstin Reichert und Gunnar Heller.</blockquote><figcaption>Martin, Thurgau 2025</figcaption></figure>
+        <figure class="stimme zeige"><blockquote lang="en">A big thank you to the narkose-team for making my surgery smooth as I had been quite stressed for over a week prior to the intervention. Having sweet dreams during my narcosis and feeling great when waking up, with absolutely no nausea. Amazing! The feeling one can have after two glasses of Champagne or being at your favourite concert; all hyper, happy and funny. They made me a perfect sleep mocktail!</blockquote><figcaption>Karolina, Wallis 2025</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="herzband" aria-hidden="true"><svg viewBox="0 0 54 50"><path d="M0 25 H10 L17 42 L31 6 L38 26 H54"/></svg></div>
+  <section class="fragen">
+    <div class="schmal">
+      <h2 class="titel zeige">Haben Sie noch <em>Fragen?</em></h2>
+      <div class="fliess zeige mitte">
+        <p>Wir stehen Ihnen gerne zur Verfügung.<br>Rufen Sie uns gerne an oder verwenden Sie unser Kontaktformular.</p>
+      </div>
+      <a class="telefon zeige" href="tel:+41768444554">+41 76 844 45 54</a>
+      <div class="knopf-reihe zeige" style="justify-content:center">
+        <a class="edel-knopf voll" href="kontakt.html">Kontakt</a>
+      </div>
+      <p class="kapitaelchen sozial-titel zeige">We are on social media</p>
+      <p class="sozial zeige">
+        <a href="https://www.instagram.com/narkose_Team.ch/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/company/narkose-team-ch-gmbh/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://wa.me/41768444554" target="_blank" rel="noopener">WhatsApp</a>
+      </p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- ============ FOOTER mit Wolken und dem Hero-Bild ============ -->
+<footer class="fuss">
+  <div class="wolken" aria-hidden="true"></div>
+
+  <div class="fuss-bild">
+    <img src="bilder/hero.jpg" srcset="bilder/hero-klein.jpg 960w, bilder/hero.jpg 1683w" sizes="100vw" alt="" width="1683" height="935" loading="lazy">
+  </div>
+
+  <div class="container fuss-inhalt">
+    <div class="fuss-spalten">
+      <div class="fuss-marke">
+        <a href="index.html" class="logo">narkose<svg viewBox="0 0 34 20" fill="none" aria-hidden="true"><path d="M1 11h9l3-6 4 11 3-8 2 3h11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>team.ch</a>
+        <p>simple smooth safe</p>
+      </div>
+      <div>
+        <h3>Unternehmen</h3>
+        <ul>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="ambulante-anaesthesie.html">Ambulante Anästhesie</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="partner.html">Für Partner*innen</a></li>
+          <li><a href="patienten.html">Für Patient*innen</a></li>
+          <li><a href="karriere.html">Karriere</a></li>
+          <li><a href="https://narkose-team.ch/faq/">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Downloads</h3>
+        <ul>
+          <li><a href="https://narkose-team.ch/wp-content/uploads/2024/11/Gesundheitsfragebogen.pdf" target="_blank" rel="noopener">Gesundheitsfragebogen</a></li>
+          <li><a href="https://narkose-team.ch/wp-content/uploads/2024/11/Patientenaufklarung.pdf" target="_blank" rel="noopener">Patientenaufklärung</a></li>
+          <li><a href="https://narkose-team.ch/wp-content/uploads/2024/11/questionnaire-1.pdf" target="_blank" rel="noopener">Questionnaire</a></li>
+          <li><a href="https://narkose-team.ch/wp-content/uploads/2024/11/Decleration_of_consent.pdf" target="_blank" rel="noopener">Declaration of Consent</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Datenschutz</h3>
+        <ul>
+          <li><a href="https://narkose-team.ch/impressum/">Impressum</a></li>
+          <li><a href="https://narkose-team.ch/datenschutzerklarung/">Datenschutzerklärung</a></li>
+          <li><a href="https://narkose-team.ch/datenschutzerklarung/#Cookies">Cookies</a></li>
+        </ul>
       </div>
     </div>
   </div>
-</section>
 
-<footer>
-  <div class="container">
-    <div class="foot">
-      <div><a href="index.html" class="logo">narkose<svg viewBox="0 0 34 20" fill="none"><path d="M1 11h9l3-6 4 11 3-8 2 3h11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>team.ch</a><p>Ihr ambulantes Narkose-Team.<br>persönlich. mobil. exklusiv.</p></div>
-      <div><h4>Seiten</h4><ul><li><a href="ueber-uns.html">Über uns</a></li><li><a href="anaesthesie.html">Anästhesie</a></li><li><a href="partner.html">Partner*innen</a></li><li><a href="patienten.html">Patient*innen</a></li></ul></div>
-      <div><h4>Service</h4><ul><li><a href="patienten.html#downloads">Downloads</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
-      <div><h4>Kontakt</h4><ul><li><a href="tel:+41768444554">+41 76 844 45 54</a></li><li><a href="mailto:info@narkose-team.ch">info@narkose-team.ch</a></li><li>Hauptstrasse 16 A<br>8272 Ermatingen</li></ul></div>
-    </div>
-    <div class="foot-bottom"><span>© <span class="year"></span> narkose-team.ch</span><span>Impressum · Datenschutz</span></div>
-  </div>
+  <p class="copy">© narkose-team.ch <span class="jahr">2024</span></p>
 </footer>
 
+<!-- WhatsApp: wandert beim Scrollen am rechten Rand mit -->
+<div class="wa-schiene" aria-hidden="true"></div>
+<a class="wa-knopf" href="https://wa.me/41768444554" target="_blank" rel="noopener" aria-label="Schreiben Sie uns auf WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C8.86 3 3.03 8.82 3.03 15.99c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75a13 13 0 0 0 6.36 1.62h.01c7.17 0 13-5.83 13-13S23.21 3 16.04 3Zm0 23.68h-.01c-1.95 0-3.86-.52-5.53-1.51l-.4-.24-3.96 1.04 1.06-3.86-.26-.4a10.7 10.7 0 0 1-1.65-5.72c0-5.94 4.83-10.78 10.77-10.78 5.94 0 10.77 4.84 10.77 10.78 0 5.94-4.84 10.69-10.79 10.69Zm5.9-8.07c-.32-.16-1.92-.95-2.22-1.06-.3-.11-.51-.16-.73.16-.21.32-.84 1.06-1.03 1.27-.19.22-.38.24-.7.08-.32-.16-1.37-.5-2.6-1.6-.96-.86-1.61-1.92-1.8-2.24-.19-.32-.02-.5.14-.66.15-.14.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.55-.73-.56h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.69s1.16 3.12 1.32 3.33c.16.22 2.28 3.48 5.52 4.88.77.33 1.37.53 1.84.68.77.25 1.48.21 2.03.13.62-.09 1.92-.78 2.19-1.54.27-.76.27-1.41.19-1.54-.08-.14-.3-.22-.62-.38Z"/></svg>
+  <span class="wa-text">WhatsApp</span>
+</a>
 <script src="script.js"></script>
 </body>
 </html>

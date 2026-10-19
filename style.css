@@ -155,6 +155,14 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .herzband svg { width: 54px; height: 50px; flex: none; overflow: visible; }
 .herzband path { fill: none; stroke: var(--linie); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
+
+/* Die rosa Herzlinie schlägt ruhig: ein feiner Lichtpunkt läuft durch den Herzschlag */
+.herz-zeichen path.licht, .herzlinie path.licht, .herzband path.licht { stroke: var(--pink-k); stroke-dasharray: 22 200; stroke-dashoffset: 22; animation: herzschlag 5.5s cubic-bezier(.45, 0, .25, 1) infinite; }
+.herzlinie path.licht { animation-delay: 1.2s; }
+.herzband path.licht { animation-delay: .6s; }
+@keyframes herzschlag { 0% { stroke-dashoffset: 22; opacity: 0; } 8% { opacity: 1; } 72% { stroke-dashoffset: -100; opacity: 1; } 80%, 100% { stroke-dashoffset: -100; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .herz-zeichen path.licht, .herzlinie path.licht, .herzband path.licht { animation: none; opacity: 0; } }
+
 /* ---------- Auftakt: ruhige Einleitung unter dem Hero ---------- */
 .auftakt { padding: clamp(96px, 12vw, 180px) 0 clamp(80px, 10vw, 150px); text-align: center; }
 .auftakt .kapitaelchen { margin-bottom: 26px; }
@@ -342,6 +350,83 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
   .herzlinie, .herzband { clip-path: none !important; transition: none; }
   .teil-bild img, .formular-bild img { transform: none; opacity: 1; transition: none; }
   .teil-himmel::after { animation: none; }
+}
+
+/* ==========================================================
+   STARTSEITE: Aufbau wie die bisherige Startseite,
+   zentriert, edel, Blau wird nach unten heller
+   ========================================================== */
+/* ---------- Ein Verlauf: Blau, nach unten immer heller ---------- */
+.start.verlauf { background: linear-gradient(to bottom, var(--himmel) 0%, #93cadf 20%, #a4d3e5 40%, #b7dcea 58%, #cbe5f0 74%, #def0f6 88%, var(--weiss) 100%); }
+
+/* ---------- Luxuriöser Teil: Serifenschrift, zentriert, viel Ruhe ---------- */
+.start .serif { font-family: "Cormorant Garamond", Georgia, serif; }
+.start .kapitel { padding: clamp(80px, 11vw, 170px) 0; text-align: center; }
+.start .kapitel + .kapitel { padding-top: 0; }
+.start .schmal { width: min(760px, 100% - 2 * var(--rand)); margin-inline: auto; }
+.start .breit { width: min(1100px, 100% - 2 * var(--rand)); margin-inline: auto; }
+.start .serif-gross,.start .serif-riesig { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 300; color: var(--tinte); letter-spacing: -.01em; line-height: 1.05; }
+.start .serif-gross { font-size: clamp(2.6rem, 6vw, 5rem); }
+.start .serif-riesig { font-size: clamp(3rem, 8vw, 6.8rem); line-height: .98; }
+.start .serif-gross em,.start .serif-riesig em,.start .serif-lead em,.start .werte-text em { font-style: italic; font-weight: 300; }
+.start .serif-lead { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400; font-size: clamp(1.35rem, 2.3vw, 1.85rem); line-height: 1.35; color: var(--text); margin-top: 26px; }
+.start .serif-lead.klein { font-size: clamp(1.25rem, 1.8vw, 1.5rem); margin-top: 34px; }
+.start .fliess { margin: 34px auto 0; max-width: 620px; font-weight: 300; font-size: 1.02em; line-height: 1.9; color: var(--tinte); }
+.start .fliess p + p { margin-top: 16px; }
+.start .fliess strong { font-weight: 500; }
+
+/* kleine, gesperrte Grossbuchstaben in Grün */
+.start .kapitaelchen { font-family: "Inter", sans-serif; font-size: .74rem; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: var(--gruen); line-height: 1.9; }
+/* feines Ornament: rosa Linie mit Punkt */
+.start .ornament { display: block; width: 90px; height: 9px; margin: 0 auto 34px;
+  background: radial-gradient(circle, var(--pink-k) 0 2.5px, transparent 3px) center / 9px 9px no-repeat,
+              linear-gradient(var(--pink-k), var(--pink-k)) left center / 36px 1px no-repeat,
+              linear-gradient(var(--pink-k), var(--pink-k)) right center / 36px 1px no-repeat; }
+
+/* Fachbereiche: drei Spalten mit römischen Zahlen, nur feine Linien */
+.start .trio { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); margin: 44px auto 0; width: min(1000px, 100vw - 2 * var(--rand)); position: relative; left: 50%; transform: translateX(-50%); }
+.start .trio li { padding: 10px clamp(16px, 3vw, 40px); display: flex; flex-direction: column; align-items: center; gap: 14px; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; color: var(--tinte); }
+.start .trio li + li { border-left: 1px solid rgba(185,115,138,.45); }
+.start .roemisch { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-size: 1rem; color: var(--pink-k); letter-spacing: .1em; }
+
+/* edle Knöpfe: eckig, fein, gesperrte Schrift */
+.start .knopf-reihe { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 40px; }
+.start .edel-knopf { display: inline-block; margin-top: 40px; padding: 17px 34px; border: 1px solid var(--tinte); color: var(--tinte); font-size: .72rem; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; line-height: 1.5; transition: background .4s var(--ease), color .4s var(--ease), border-color .4s; }
+.start .knopf-reihe .edel-knopf { margin-top: 0; }
+.start .edel-knopf:hover { background: var(--tinte); color: #fff; }
+.start .edel-knopf.voll { background: var(--gruen); border-color: var(--gruen); color: #fff; }
+.start .edel-knopf.voll:hover { background: transparent; color: var(--gruen); }
+
+/* Stärken als fliessender Text */
+.start .werte .kapitaelchen { margin-bottom: 30px; }
+.start .werte-text { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 300; font-size: clamp(1.7rem, 4vw, 3.3rem); line-height: 1.32; color: var(--tinte); letter-spacing: -.005em; }
+.start .werte-text i { font-style: normal; color: var(--pink-k); margin: 0 .06em; }
+
+/* Partner in einer feinen Reihe */
+.start .partner-reihe { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; margin-top: 44px; }
+.start .partner-reihe li { padding: 6px clamp(14px, 2.4vw, 32px); }
+.start .partner-reihe li + li { border-left: 1px solid rgba(185,115,138,.45); }
+.start .partner-reihe a { font-size: .74rem; letter-spacing: .24em; text-transform: uppercase; color: var(--tinte); transition: color .3s; }
+.start .partner-reihe a:hover { color: var(--gruen); }
+
+/* Kontakt */
+.start .telefon { display: inline-block; margin-top: 30px; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 300; font-size: clamp(2.2rem, 4.6vw, 3.6rem); letter-spacing: .02em; color: var(--tinte); transition: color .3s; }
+.start .telefon:hover { color: var(--gruen); }
+.start .sozial-titel { margin-top: clamp(50px, 6vw, 80px); }
+.start .sozial { margin-top: 12px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.start .sozial a { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-size: 1.3rem; color: var(--tinte); border-bottom: 1px solid transparent; transition: border-color .3s, color .3s; }
+.start .sozial a:hover { color: var(--gruen); border-color: var(--pink-k); }
+.start .fragen { padding-bottom: clamp(110px, 12vw, 180px) !important; }
+
+
+/* Startseite: rosa Herzlinie statt Punkt-Ornament */
+.start .herz-zeichen { margin-bottom: 34px; }
+@media (max-width: 760px) {
+  .start .trio { grid-template-columns: 1fr; width: 100%; left: auto; transform: none; }
+  .start .trio li { padding: 22px 0; }
+  .start .trio li + li { border-left: 0; border-top: 1px solid rgba(185,115,138,.45); }
+  .start .partner-reihe { flex-direction: column; align-items: center; }
+  .start .partner-reihe li + li { border-left: 0; }
 }
 
 /* ---------- Footer: Wolken + Bild ---------- */

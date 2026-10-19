@@ -96,7 +96,10 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 @keyframes lauf { from { stroke-dashoffset: 140; } to { stroke-dashoffset: -1000; } }
 
 /* sanfter Übergang vom Bild in den Verlauf */
-.hero::after { content: ""; position: absolute; inset: auto 0 0; height: 18%; background: linear-gradient(to bottom, rgba(134,195,217,0), var(--himmel)); pointer-events: none; }
+/* Kein Schleier mehr über dem Bildrand: Viereck und Füsse bleiben klar, der Verlauf beginnt erst unter dem Bild im gleichen Himmelblau */
+.hero::after { display: none; }
+/* nur rechts vom Viereck: Himmel ganz weich in das Blau darunter auslaufen lassen */
+.buehne::after { content: ""; position: absolute; left: 16.6%; right: 0; bottom: 0; height: 7%; background: linear-gradient(to bottom, rgba(134,195,217,0), var(--himmel)); pointer-events: none; z-index: 1; }
 
 
 /* ==========================================================
@@ -113,6 +116,12 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 }
 
 /* Blau aus dem Bild geht langsam in helles Nebelweiss über */
+/* Das grüne Viereck läuft unter dem Bild weich ins Blau aus (Füsse bleiben klar) */
+.inhalt { position: relative; --kasten: calc(max(560px, 100svh, 100vw * 935 / 1683) * 1683 / 935 * .1645); }
+.inhalt::before { content: ""; position: absolute; left: 0; top: 0; width: var(--kasten); height: clamp(120px, 14vw, 220px); pointer-events: none; z-index: 2;
+  background: linear-gradient(to bottom, #0f3127 0%, rgba(15,49,39,.55) 30%, rgba(15,49,39,.18) 62%, rgba(15,49,39,0) 100%); }
+@media (max-aspect-ratio: 4/5) { .inhalt { --kasten: calc(max(560px, 100svh, 100vw * 935 / 1683) * .74 * 1683 / 935 * .1645); } }
+.inhalt > * { position: relative; }
 .inhalt { background: linear-gradient(to bottom, var(--himmel) 0, #b3d9e7 240px, #d9ecf3 560px, var(--nebel) 900px, var(--nebel) calc(100% - 360px), #fff 100%); }
 
 /* ---------- Schrift ---------- */
@@ -357,7 +366,7 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
    zentriert, edel, Blau wird nach unten heller
    ========================================================== */
 /* ---------- Ein Verlauf: Blau, nach unten immer heller ---------- */
-.start.verlauf { background: linear-gradient(to bottom, var(--himmel) 0%, #93cadf 20%, #a4d3e5 40%, #b7dcea 58%, #cbe5f0 74%, #def0f6 88%, var(--weiss) 100%); }
+.start.verlauf { background: linear-gradient(to bottom, var(--himmel) 0, #95cce0 140px, #a8d6e7 360px, #bfe1ee 700px, #d3eaf3 1200px, #e2f1f7 45%, #eef7fa 80%, var(--weiss) 100%); }
 
 /* ---------- Luxuriöser Teil: Serifenschrift, zentriert, viel Ruhe ---------- */
 .start .serif { font-family: "Cormorant Garamond", Georgia, serif; }
@@ -548,3 +557,22 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
   .wa-schiene { right: calc(var(--rand) + 24.5px); }
 }
 @media (hover: none) { .wa-text { display: none; } }
+
+/* ---------- Partner*innen: zwei grosse, ruhige Karten ---------- */
+.partner-karten { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); max-width: 1080px; margin: clamp(40px, 5vw, 72px) auto clamp(48px, 5vw, 72px); text-align: left; }
+.partner-karte { display: block; color: var(--tinte); }
+.partner-flaeche { position: relative; display: grid; place-items: center; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 2px;
+  box-shadow: 0 30px 60px -38px rgba(8,52,79,.45); transition: transform .9s var(--ruhig), box-shadow .9s var(--ruhig); }
+.partner-flaeche img { display: block; height: auto; transition: transform 1.2s var(--ruhig); }
+.partner-flaeche::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--pink-k); transition: width .9s var(--ruhig); }
+.partner-karte:hover .partner-flaeche { transform: translateY(-6px); box-shadow: 0 40px 70px -40px rgba(8,52,79,.55); }
+.partner-karte:hover .partner-flaeche img { transform: scale(1.04); }
+.partner-karte:hover .partner-flaeche::after { width: 100%; }
+.partner-text { display: block; padding: 22px 2px 0; }
+.partner-fach { display: block; font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: #9a6a7a; }
+.partner-name { display: block; margin-top: 8px; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 300; font-size: clamp(1.6rem, 2.2vw, 2.1rem); line-height: 1.15; }
+.partner-link { display: inline-block; margin-top: 10px; font-size: .88rem; border-bottom: 1px solid var(--linie); padding-bottom: 2px; transition: border-color .4s; }
+.partner-link::after { content: " →"; }
+.partner-karte:hover .partner-link { border-color: var(--pink-k); }
+.partner-karte + .partner-karte.zeige { transition-delay: .15s; }
+@media (max-width: 720px) { .partner-karten { grid-template-columns: 1fr; gap: 44px; } }

@@ -573,38 +573,40 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .partner-karte + .partner-karte.zeige { transition-delay: .15s; }
 @media (max-width: 720px) { .partner-karten { grid-template-columns: 1fr; gap: 44px; } }
 
-/* ---------- Startseite: Unsere Stärken – Foto über den ganzen Abschnitt, Verlauf, Kacheln darauf ---------- */
-.start .staerken { position: relative; overflow: hidden; text-align: left; padding: clamp(110px, 11vw, 190px) 0 !important; }
+/* ---------- Startseite: Unsere Stärken – wie Jasminas Beispiel: zentriert, kleine Symbole, feine Trennstriche ---------- */
+.start .staerken { position: relative; overflow: hidden; text-align: center; padding: clamp(80px, 8vw, 130px) 0 !important; }
 .staerken-bild { position: absolute; inset: 0; pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 84%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 84%, transparent 100%); }
-.staerken-bild img { width: 100%; height: 100%; object-fit: cover; object-position: 75% 35%; filter: blur(3px) saturate(.8) brightness(1.04); transform: scale(1.03); }
-/* heller Verlauf von links (Text) nach rechts (Person), oben und unten weich in die Seite */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%); }
+.staerken-bild img { width: 100%; height: 100%; object-fit: cover; object-position: 75% 35%; filter: blur(3px) saturate(.8) brightness(1.05); transform: scale(1.03); }
 .staerken-bild::after { content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(255,255,255,.97) 0%, rgba(255,255,255,.9) 34%, rgba(255,255,255,.55) 60%, rgba(255,255,255,.12) 82%, rgba(255,255,255,0) 100%); }
+  background: linear-gradient(to right, rgba(255,255,255,.93) 0%, rgba(255,255,255,.9) 55%, rgba(255,255,255,.55) 78%, rgba(255,255,255,.15) 100%); }
 .staerken-inhalt { position: relative; }
-.start .staerken .kapitaelchen { margin-bottom: 18px; }
-.staerken-strich { display: block; width: 92px; height: 1px; background: var(--pink-k); opacity: .6; margin-bottom: 28px; }
-.start .staerken h2.serif-gross { max-width: 900px; }
-.staerken-lead { max-width: 620px; margin-top: 22px; color: var(--text); font-size: 1.02rem; line-height: 1.75; }
-.staerken-raster { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 980px; margin-top: clamp(36px, 4vw, 52px); }
-.staerke { flex: 0 0 calc((100% - 4 * 12px) / 5); display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 24px 10px 22px; text-align: center;
-  background: rgba(255,255,255,.6); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.85); border-radius: 10px;
-  box-shadow: 0 14px 30px -24px rgba(8,52,79,.3); transition: transform .6s var(--ruhig), background .6s var(--ruhig), box-shadow .6s var(--ruhig); }
-.staerke:hover { transform: translateY(-4px); background: rgba(255,255,255,.88); box-shadow: 0 22px 40px -26px rgba(8,52,79,.4); }
-.staerke-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: rgba(225,226,222,.6); transition: background .6s var(--ruhig); }
-.staerke-icon svg { width: 26px; height: 26px; fill: none; stroke: var(--tinte); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
-.staerke:hover .staerke-icon { background: rgba(230,213,218,.85); }
-.staerke-wort { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.22rem; color: var(--tinte); line-height: 1.2; }
-@media (max-width: 1000px) { .staerke { flex-basis: calc((100% - 3 * 12px) / 4); } }
+.start .staerken .kapitaelchen { margin-bottom: 18px; color: var(--text); }
+.staerken-strich { display: block; width: 60px; height: 1px; background: var(--tinte); opacity: .45; margin: 0 auto 30px; }
+.start .staerken-titel { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(2.2rem, 4.4vw, 3.9rem); line-height: 1.08; letter-spacing: -.01em; color: var(--tinte); }
+.start .staerken .staerken-lead { font-family: "Inter", system-ui, sans-serif; font-weight: 300; font-size: clamp(.98rem, 1.15vw, 1.08rem); line-height: 1.7; color: var(--text); max-width: 640px; margin: 20px auto 0; }
+.staerken-puls { display: block; width: min(340px, 70%); height: 22px; margin: 26px auto 0; overflow: visible; }
+.staerken-puls path { fill: none; stroke: var(--pink-k); stroke-width: 1.2; opacity: .7; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.staerken-raster { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; row-gap: 30px; max-width: 980px; margin: 40px auto 0; }
+.staerke { position: relative; flex: 0 0 20%; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0 8px; }
+.staerke::before { content: ""; position: absolute; left: 0; top: 10px; height: 34px; width: 1px; background: var(--tinte); opacity: .2; }
+.staerke:nth-child(5n+1)::before { display: none; }
+.staerke-icon { display: block; }
+.staerke-icon svg { display: block; width: 30px; height: 30px; fill: none; stroke: var(--tinte); stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; transition: stroke .4s; }
+.staerke:hover .staerke-icon svg { stroke: var(--pink-k); }
+.staerke-wort { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 1.12rem; color: var(--tinte); line-height: 1.2; }
 @media (max-width: 760px) {
-  .staerken-bild img { object-position: 70% 30%; }
-  .staerken-bild::after { background: linear-gradient(to bottom, rgba(255,255,255,.75) 0%, rgba(255,255,255,.88) 40%, rgba(255,255,255,.95) 100%); }
-  .staerke { flex-basis: calc((100% - 2 * 10px) / 3); padding: 18px 6px 16px; }
-  .staerken-raster { gap: 10px; }
-  .staerke-wort { font-size: 1.05rem; }
+  .nur-breit { display: none; }
+  .staerken-bild::after { background: rgba(255,255,255,.9); }
+  .staerken-raster { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .staerke { min-width: 0; padding: 0 4px; }
+  .staerke:last-child:nth-child(3n+1) { grid-column: 2; }
+  .staerke:last-child:nth-child(3n+1)::before { display: none; }
+  .staerke:nth-child(5n+1)::before { display: block; }
+  .staerke:nth-child(3n+1)::before { display: none; }
+  .staerken-raster { row-gap: 24px; }
+  .staerke-wort { font-size: .98rem; overflow-wrap: anywhere; hyphens: auto; }
 }
-@media (max-width: 440px) { .staerke { flex-basis: calc((100% - 10px) / 2); } }
-
 /* ---------- Schriften (Jasmina, 2026-10-19) ----------
    Grosse Titel: gleiche Schrift wie «simple smooth safe» (Plus Jakarta Sans, fett, eng).
    Text direkt unter einem Titel: feine Schreibschrift (Cormorant), überall gleich gross. */

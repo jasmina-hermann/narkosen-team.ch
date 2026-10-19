@@ -99,8 +99,8 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 /* Kein Schleier mehr über dem Bildrand: Viereck und Füsse bleiben klar, der Verlauf beginnt erst unter dem Bild im gleichen Himmelblau */
 .hero::after { display: none; }
 /* weicher Übergang über die ganze Breite, erst unter den Füssen; Blau aus dem Himmel oben */
-.buehne::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 8%; pointer-events: none; z-index: 1;
-  background: linear-gradient(to bottom, rgba(128,188,222,0) 0%, rgba(128,188,222,.3) 40%, rgba(128,188,222,.75) 75%, #80bcde 100%); }
+.buehne::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 13%; pointer-events: none; z-index: 1;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.08) 30%, rgba(255,255,255,.35) 55%, rgba(255,255,255,.75) 78%, #fff 100%); }
 
 
 /* ==========================================================
@@ -110,7 +110,7 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
    fein durch jede Seite.
    ========================================================== */
 :root {
-  --nebel:   #f3f7f9;   /* ruhiges, ganz helles Blau-Weiss      */
+  --nebel:   #ffffff;   /* Mitte der Seiten: reines Weiss (Jasmina) */
   --linie:   #dcc4cb;   /* Rosa der Herzlinie (wie im Fragebogen) */
   --balken:  #e6d5da;   /* Rosa des senkrechten Balkens          */
   --ruhig:   cubic-bezier(.25, .1, .25, 1);
@@ -118,7 +118,7 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 
 /* Blau aus dem Bild geht langsam in helles Nebelweiss über */
 .inhalt > * { position: relative; }
-.inhalt { background: linear-gradient(to bottom, #80bcde 0, #95c7e3 200px, #b4d6ec 480px, #d4e6f3 800px, var(--nebel) 900px, var(--nebel) calc(100% - 360px), #fff 100%); }
+.inhalt { background: #fff; }
 
 /* ---------- Schrift ---------- */
 .serif { font-family: "Cormorant Garamond", Georgia, serif; }
@@ -362,7 +362,7 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
    zentriert, edel, Blau wird nach unten heller
    ========================================================== */
 /* ---------- Ein Verlauf: Blau, nach unten immer heller ---------- */
-.start.verlauf { background: linear-gradient(to bottom, #80bcde 0, #91c5e3 200px, #a6d0e8 460px, #bcdbef 800px, #d1e6f3 1200px, #e1edf6 45%, #eef5fa 80%, var(--weiss) 100%); }
+.start.verlauf { background: #fff; }
 
 /* ---------- Luxuriöser Teil: Serifenschrift, zentriert, viel Ruhe ---------- */
 .start .serif { font-family: "Cormorant Garamond", Georgia, serif; }
@@ -373,7 +373,7 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .start .serif-gross,.start .serif-riesig { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 300; color: var(--tinte); letter-spacing: -.01em; line-height: 1.05; }
 .start .serif-gross { font-size: clamp(2.6rem, 6vw, 5rem); }
 /* Startseite: "persönlich. mobil. exklusiv." auf breiten Bildschirmen auf einer Zeile */
-@media (min-width: 900px) { .start .intro .serif-gross { white-space: nowrap; width: max-content; margin-left: 50%; translate: -50% 0; } }
+@media (min-width: 1100px) { .start .intro .serif-gross { white-space: nowrap; width: max-content; margin-left: 50%; translate: -50% 0; } }
 .start .serif-riesig { font-size: clamp(3rem, 8vw, 6.8rem); line-height: .98; }
 .start .serif-gross em,.start .serif-riesig em,.start .serif-lead em,.start .werte-text em { font-style: italic; font-weight: 300; }
 .start .serif-lead { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400; font-size: clamp(1.35rem, 2.3vw, 1.85rem); line-height: 1.35; color: var(--text); margin-top: 26px; }
@@ -580,7 +580,7 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .staerken-bild img { width: 100%; height: 100%; object-fit: cover; object-position: 75% 35%; filter: blur(3px) saturate(.8) brightness(1.04); transform: scale(1.03); }
 /* heller Verlauf von links (Text) nach rechts (Person), oben und unten weich in die Seite */
 .staerken-bild::after { content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(246,248,248,.97) 0%, rgba(246,248,248,.9) 34%, rgba(246,248,248,.55) 60%, rgba(246,248,248,.12) 82%, rgba(246,248,248,0) 100%); }
+  background: linear-gradient(to right, rgba(255,255,255,.97) 0%, rgba(255,255,255,.9) 34%, rgba(255,255,255,.55) 60%, rgba(255,255,255,.12) 82%, rgba(255,255,255,0) 100%); }
 .staerken-inhalt { position: relative; }
 .start .staerken .kapitaelchen { margin-bottom: 18px; }
 .staerken-strich { display: block; width: 92px; height: 1px; background: var(--pink-k); opacity: .6; margin-bottom: 28px; }
@@ -598,9 +598,28 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 @media (max-width: 1000px) { .staerke { flex-basis: calc((100% - 3 * 12px) / 4); } }
 @media (max-width: 760px) {
   .staerken-bild img { object-position: 70% 30%; }
-  .staerken-bild::after { background: linear-gradient(to bottom, rgba(246,248,248,.75) 0%, rgba(246,248,248,.88) 40%, rgba(246,248,248,.95) 100%); }
+  .staerken-bild::after { background: linear-gradient(to bottom, rgba(255,255,255,.75) 0%, rgba(255,255,255,.88) 40%, rgba(255,255,255,.95) 100%); }
   .staerke { flex-basis: calc((100% - 2 * 10px) / 3); padding: 18px 6px 16px; }
   .staerken-raster { gap: 10px; }
   .staerke-wort { font-size: 1.05rem; }
 }
 @media (max-width: 440px) { .staerke { flex-basis: calc((100% - 10px) / 2); } }
+
+/* ---------- Schriften (Jasmina, 2026-10-19) ----------
+   Grosse Titel: gleiche Schrift wie «simple smooth safe» (Plus Jakarta Sans, fett, eng).
+   Text direkt unter einem Titel: feine Schreibschrift (Cormorant), überall gleich gross. */
+.titel, .titel-gross, .start .serif-gross, .start .serif-riesig, .kapitel-reihe .titel {
+  font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; letter-spacing: -.045em; line-height: 1.02; color: var(--tinte); }
+.titel em, .titel-gross em, .start .serif-gross em, .start .serif-riesig em { font-style: normal; font-weight: 700; }
+.titel { font-size: clamp(2rem, 3.6vw, 3.3rem); }
+.kapitel-reihe .titel { font-size: clamp(1.8rem, 3vw, 2.8rem); }
+.titel-gross { font-size: clamp(2.5rem, 5.6vw, 5rem); line-height: .98; }
+.start .serif-gross { font-size: clamp(2.3rem, 5vw, 4.2rem); }
+.start .serif-riesig { font-size: clamp(2.7rem, 6.6vw, 5.6rem); line-height: .98; }
+.teil-himmel .titel { color: #fff; }
+.serif-lead, .start .serif-lead, .start .serif-lead.klein, .staerken-lead, .fliess, .start .fliess {
+  font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400; font-style: normal; font-size: clamp(1.25rem, 1.55vw, 1.42rem); line-height: 1.6; color: var(--tinte); }
+.fliess strong, .fliess b { font-weight: 600; }
+.serif-lead + .fliess, .start .serif-lead + .fliess { margin-top: 18px; }
+.serif-lead em, .start .serif-lead em { font-style: italic; }
+.zitat { font-size: clamp(1.25rem, 1.55vw, 1.42rem); line-height: 1.6; }

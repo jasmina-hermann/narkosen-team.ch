@@ -902,3 +902,16 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .mag .mag-text p.mag-kicker { font-family: "Inter", sans-serif; font-size: .7rem; line-height: 1.4; letter-spacing: .22em; }
 @media (min-width: 701px) and (max-width: 1024px) { .mag-stimmen-raster { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
 @media (max-width: 700px) { .mag-portrait { aspect-ratio: 1 / 1; } }
+/* Partner-Seite im Magazin-Stil (2026-10-20) */
+.mag-liste { list-style: none; margin: .6em 0 1em; }
+.mag-liste li { position: relative; padding: 10px 0 10px 22px; border-top: 1px solid rgba(185,115,138,.2); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.12rem, 1.3vw, 1.22rem); line-height: 1.5; }
+.mag-liste li:last-child { border-bottom: 1px solid rgba(185,115,138,.2); }
+.mag-liste li::before { content: ""; position: absolute; left: 2px; top: 1.15em; width: 6px; height: 6px; border-radius: 50%; background: var(--pink-k); }
+.mag-text strong { font-weight: 600; }
+.mag-text .prae-zwischen { font-size: clamp(1.2rem, 1.6vw, 1.4rem); margin: 1.8em 0 .5em; }
+.mag-text .knopf-reihe { margin-top: 30px; }
+.mag-link { text-decoration: underline; text-decoration-color: var(--pink-k); text-underline-offset: 4px; }
+.mag-partner-bild { aspect-ratio: 4 / 3; max-width: 440px; }
+.mag .partner-karten { margin-top: 0; }
+.mag .knopf-reihe { margin-top: 32px; }
+.mag-partner-bild[hidden] + .mag-text { grid-column: 2; } @media (max-width: 700px) { .mag-partner-bild[hidden] + .mag-text { grid-column: auto; } }

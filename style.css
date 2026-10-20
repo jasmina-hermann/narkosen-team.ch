@@ -956,3 +956,16 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .mag-bildpaar { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 28px); max-width: 760px; margin: clamp(32px, 4vw, 56px) auto 0; }
 .mag-bildpaar .mag-bild { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; }
 .mag-bildpaar .mag-bild img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ---------- Einheitliche Typografie auf allen Seiten (Jasmina 2026-10-20: dezent, überall gleich) ----------
+   H1 Seitentitel 46px · H2 Abschnittstitel 32px · Zwischentitel 22px · Fliesstext Cormorant 19–20px */
+:root { --t-h1: clamp(2rem, 3.4vw, 2.9rem); --t-h2: clamp(1.55rem, 2.3vw, 2rem); --t-h3: clamp(1.2rem, 1.6vw, 1.4rem); --t-text: clamp(1.12rem, 1.3vw, 1.22rem); }
+h1.titel-gross, .start h1.titel-gross, .mag .mag-h1 { font-size: var(--t-h1) !important; line-height: 1.1 !important; }
+h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-riesig, h2.serif-gross, h2.serif-riesig, .start .fach-titel, .fach-titel, .mag .mag-h2, .start .staerken-titel, .staerken-titel {
+  font-family: "Plus Jakarta Sans", sans-serif !important; font-weight: 700 !important; font-size: var(--t-h2) !important; line-height: 1.15 !important; letter-spacing: -.035em !important; }
+.start .staerken-titel em, .staerken-titel em { font-style: normal; }
+.prae-zwischen, h2.prae-zwischen, h3.prae-zwischen, .mag-akkordeon summary h2 { font-size: var(--t-h3) !important; line-height: 1.25 !important; }
+.serif-lead, .start .serif-lead, .start .serif-lead.klein, .fliess, .start .fliess, .fliess p, .mag-text p, .mag-text, .mag-auszug, .mag-stimme blockquote, .staerken-lead, .start .staerken .staerken-lead, .prae-punkte-liste li {
+  font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 400; font-size: var(--t-text) !important; line-height: 1.6 !important; }
+.start .fach-satz, .fach-satz { font-size: var(--t-text) !important; line-height: 1.6 !important; }
+.mag .mag-name { font-size: var(--t-h2) !important; }

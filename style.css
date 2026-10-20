@@ -625,3 +625,34 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .serif-lead + .fliess, .start .serif-lead + .fliess { margin-top: 18px; }
 .serif-lead em, .start .serif-lead em { font-style: italic; }
 .zitat { font-size: clamp(1.25rem, 1.55vw, 1.42rem); line-height: 1.6; }
+
+/* ---------- Startseite: Fachbereiche – modern, viel Weissraum (Tailwind-Look ohne Tailwind) ---------- */
+.start .fach-teil { padding: clamp(96px, 10vw, 160px) 0 !important; }
+.fach-rahmen { width: min(1120px, 100% - 2 * var(--rand)); margin-inline: auto; text-align: center; }
+.start .fach-teil .kapitaelchen { margin-bottom: 18px; color: var(--pink-k); }
+.start .fach-titel { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; letter-spacing: -.035em; line-height: 1.1; color: var(--tinte);
+  font-size: clamp(1.55rem, 3.2vw, 2.8rem); max-width: 760px; margin-inline: auto; }
+.fach-karten { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(48px, 5vw, 72px); }
+/* keine Kästen: nur Symbol und Text, feine Trennstriche */
+.fach-karte { position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 4px clamp(20px, 3vw, 44px); text-align: center; }
+.fach-karte + .fach-karte::before { content: ""; position: absolute; left: 0; top: 6px; bottom: 6px; width: 1px; background: var(--tinte); opacity: .15; }
+.fach-karte.zeige:nth-child(2) { transition-delay: .1s; } .fach-karte.zeige:nth-child(3) { transition-delay: .2s; }
+.fach-icon { display: block; }
+.fach-icon svg { display: block; width: 34px; height: 34px; fill: none; stroke: var(--pink-k); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.fach-nr { display: none; }
+.fach-text, .fach-satz { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400; font-size: clamp(1.25rem, 1.55vw, 1.42rem); line-height: 1.5; color: var(--tinte); }
+.fach-satz { max-width: 620px; margin: clamp(48px, 5vw, 64px) auto 0; }
+.fach-link { display: inline-block; margin-top: 28px; font-family: "Inter", sans-serif; font-size: .78rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--tinte);
+  padding-bottom: 6px; border-bottom: 1px solid var(--pink-k); transition: color .3s, border-color .3s; }
+.fach-link::after { content: "  →"; letter-spacing: 0; }
+.fach-link:hover { color: var(--pink-k); }
+.fach-gruss { margin-top: 32px; }
+.fach-gruss em { font-style: italic; }
+@media (max-width: 760px) { .fach-karten { grid-template-columns: 1fr; gap: 0; } .fach-karte { padding: 26px 0; } .fach-karte + .fach-karte::before { left: 50%; top: 0; bottom: auto; width: 60px; height: 1px; translate: -50% 0; } }
+
+/* WhatsApp (Jasmina, 2026-10-20): kein Strich mehr, Knopf fest unten rechts, damit er keinen Text wandernd verdeckt; sanftes Pulsieren */
+.wa-schiene { display: none !important; }
+.wa-knopf { top: auto; bottom: clamp(18px, 3vw, 32px); right: clamp(16px, 3vw, 32px); transform: none !important; }
+.wa-knopf::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--pink-k); opacity: 0; animation: wa-puls 3.2s ease-out infinite; pointer-events: none; }
+@keyframes wa-puls { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.6); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .wa-knopf::after { animation: none; } }

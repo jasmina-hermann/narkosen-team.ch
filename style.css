@@ -941,3 +941,6 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .mag + .schritte-teil { padding-top: clamp(48px, 5vw, 72px) !important; }
 .schritte.mit-bild { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(200px, 320px)); justify-content: center; gap: clamp(28px, 4vw, 64px); }
 .schritte.mit-bild li { flex: none; }
+
+/* Patienten: Titel im Grün der Kiste (Jasmina 2026-10-20) */
+.mag .mag-h2.gruen-titel, .mag .mag-h2.gruen-titel em { color: #244438; }

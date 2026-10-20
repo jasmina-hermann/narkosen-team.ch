@@ -985,3 +985,6 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 @media (max-aspect-ratio: 4/5) { .claim { width: calc(100vw - 20.5cqw); } }
 /* iPhone: Hero-Höhe beim Scrollen nicht mehr ändern (Adressleiste) – Höhe wird einmal beim Laden fixiert */
 .hero { height: max(var(--hero-h, 100svh), 100vw * 935 / 1683); }
+
+/* Telefonnummer in der Hero-Schrift (Jasmina 2026-10-20) */
+.telefon, .start .telefon, .mag-telefon, .mag .mag-text p.mag-telefon, .mag-telefon a { font-family: "Plus Jakarta Sans", sans-serif !important; font-weight: 600 !important; font-style: normal !important; font-variant-numeric: lining-nums tabular-nums; letter-spacing: -.01em; font-size: clamp(1.4rem, 2vw, 1.75rem) !important; }

@@ -778,3 +778,13 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
   .fuss-marke { grid-column: 1 / -1; }
   .fuss-unten { flex-direction: column; padding-right: 90px; }
 }
+/* Präop wie Original (2026-10-20): Bild links, Text rechts, Liste fett mit feinen Linien, nur 02/03 als Weiterlinks */
+.prae-kopf .prae-raster { align-items: start; }
+.prae-kopf .prae-bild { position: sticky; top: 120px; padding-top: 40px; }
+.prae-punkte-liste { list-style: none; margin-top: 30px; }
+.prae-punkte-liste li { padding: 13px 0 13px 26px; position: relative; border-top: 1px solid rgba(185,115,138,.28); font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: clamp(1.25rem, 1.55vw, 1.42rem); color: var(--tinte); }
+.prae-punkte-liste li:last-child { border-bottom: 1px solid rgba(185,115,138,.28); }
+.prae-punkte-liste li::before { content: ""; position: absolute; left: 2px; top: 50%; width: 8px; height: 8px; border-radius: 50%; background: var(--pink-k); translate: 0 -50%; }
+.schritte:has(li[hidden]) { grid-template-columns: repeat(2, 1fr); }
+.schritte li[hidden] + li { border-left: 0; }
+@media (max-width: 860px) { .prae-kopf .prae-bild { position: static; padding-top: 0; } .prae-raster.umgekehrt .prae-bild { order: 0; } .prae-text { text-align: left; } .prae-text .herz-zeichen { margin-inline: 0 auto; } .prae-kopf .knopf-reihe { justify-content: flex-start; } }

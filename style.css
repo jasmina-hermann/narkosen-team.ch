@@ -820,3 +820,5 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .schritte.mit-bild .nr { font-family: "Plus Jakarta Sans", sans-serif; font-style: normal; font-weight: 700; font-size: clamp(3rem, 5vw, 4.4rem); line-height: 1; letter-spacing: -.04em; color: #e3cfd5; }
 .schritte.mit-bild .name { margin-top: 14px; font-size: clamp(1.25rem, 1.55vw, 1.42rem); }
 .prae-bild img, .schritt-bild img { box-shadow: 0 0 0 1px rgba(214,178,190,.6), 0 0 36px 8px rgba(214,178,190,.55), 0 0 90px 30px rgba(230,205,214,.45); }
+.prae-zwischen { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: clamp(1.35rem, 1.9vw, 1.7rem); letter-spacing: -.03em; line-height: 1.2; color: var(--tinte); margin: 2em 0 .6em; }
+.prae-text .fliess strong { font-weight: 600; }

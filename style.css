@@ -944,3 +944,10 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 
 /* Patienten: Titel im Grün der Kiste (Jasmina 2026-10-20) */
 .mag .mag-h2.gruen-titel, .mag .mag-h2.gruen-titel em { color: #244438; }
+
+/* Start Handy: Mann tiefer, sanfterer Verlauf, Abstand zum Herzzeichen (Jasmina 2026-10-20) */
+@media (max-width: 760px) {
+  .staerken-mann { height: 400px; margin-top: 12px; }
+  .staerken-mann img { object-position: 35% 0%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%); mask-image: linear-gradient(to bottom, transparent 0, #000 16%); }
+  .staerken + .partner .herz-zeichen { margin-top: 56px; }
+}

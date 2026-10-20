@@ -670,3 +670,10 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .wa-knopf::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--pink-k); opacity: 0; animation: wa-puls 3.2s ease-out infinite; pointer-events: none; }
 @keyframes wa-puls { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.6); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .wa-knopf::after { animation: none; } }
+/* Titel gleich gross wie die anderen Abschnittstitel; keine Kasten-Knöpfe, nur unterstrichene Textlinks (Kundenwunsch) */
+.start .serif-riesig { font-size: clamp(2.3rem, 5vw, 4.2rem); line-height: 1.05; }
+.edel-knopf, .start .edel-knopf, .edel-knopf.voll, .start .edel-knopf.voll { background: none !important; border: 0 !important; border-bottom: 1px solid var(--pink-k) !important; padding: 0 0 6px; font-family: "Inter", sans-serif; font-size: .78rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--tinte); cursor: pointer; transition: color .3s; }
+.edel-knopf::after { content: "  →"; letter-spacing: 0; }
+.edel-knopf:hover, .start .edel-knopf:hover, .edel-knopf.voll:hover, .start .edel-knopf.voll:hover { background: none !important; color: var(--pink-k); }
+.teil-himmel .edel-knopf, .teil-himmel .edel-knopf:hover { color: #fff; border-color: rgba(255,255,255,.75); }
+.knopf-reihe, .start .knopf-reihe { gap: 18px 44px; }

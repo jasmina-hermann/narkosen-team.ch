@@ -951,3 +951,8 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
   .staerken-mann img { object-position: 35% 0%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%); mask-image: linear-gradient(to bottom, transparent 0, #000 16%); }
   .staerken + .partner .herz-zeichen { margin-top: 56px; }
 }
+
+/* Über uns 04: zwei Bilder gleich hoch, PC und Handy identisch (Jasmina 2026-10-20) */
+.mag-bildpaar { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 28px); max-width: 760px; margin: clamp(32px, 4vw, 56px) auto 0; }
+.mag-bildpaar .mag-bild { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; }
+.mag-bildpaar .mag-bild img { width: 100%; height: 100%; object-fit: cover; display: block; }

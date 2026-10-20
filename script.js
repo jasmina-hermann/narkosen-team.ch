@@ -45,3 +45,11 @@ if (wa) {
   addEventListener('resize', anstossen);
   anstossen();
 }
+
+// Hero-Höhe einmal fixieren, damit «simple smooth safe» am iPhone beim Scrollen nicht grösser/kleiner wird
+(() => {
+  let breite = innerWidth;
+  const setze = () => document.documentElement.style.setProperty('--hero-h', innerHeight + 'px');
+  setze();
+  addEventListener('resize', () => { if (innerWidth !== breite) { breite = innerWidth; setze(); } });
+})();

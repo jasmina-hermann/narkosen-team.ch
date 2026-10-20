@@ -971,3 +971,17 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .mag .mag-name { font-size: var(--t-h2) !important; }
 /* Abstand nach dem Stärken-Bild, seit das Herzzeichen dort fehlt */
 .start .staerken + .partner { padding-top: clamp(64px, 8vw, 120px) !important; }
+
+/* ---------- EKG-Linie wie auf dem Plakat (Jasmina 2026-10-20) ----------
+   Dicke weisse Herzlinie beginnt direkt nach «smooth» und läuft bis zum rechten Rand, sie bewegt sich nach links. */
+.puls { display: none !important; }
+.claim { width: calc(100vw - 24cqw); }
+.claim .claim-smooth { display: flex; align-items: center; }
+.ekg { flex: 1; min-width: 0; height: 1.25em; margin-left: .04em; transform: translateY(.06em);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 100' preserveAspectRatio='none'%3E%3Cpath d='M-2 52 H46 L58 86 L72 8 L84 58 L88 52 H142' fill='none' stroke='%23fff' stroke-width='7' stroke-linejoin='miter' stroke-miterlimit='3'/%3E%3C/svg%3E") repeat-x 0 50% / 1.75em 100%;
+  animation: ekg-lauf 2.6s linear infinite; filter: drop-shadow(0 4px 18px rgba(8,52,79,.25)); }
+@keyframes ekg-lauf { from { background-position-x: 0; } to { background-position-x: -1.75em; } }
+@media (prefers-reduced-motion: reduce) { .ekg { animation: none; } }
+@media (max-aspect-ratio: 4/5) { .claim { width: calc(100vw - 20.5cqw); } }
+/* iPhone: Hero-Höhe beim Scrollen nicht mehr ändern (Adressleiste) – Höhe wird einmal beim Laden fixiert */
+.hero { height: max(var(--hero-h, 100svh), 100vw * 935 / 1683); }

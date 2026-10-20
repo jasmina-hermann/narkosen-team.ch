@@ -759,3 +759,22 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .prae-text .herz-zeichen { margin-left: 0; margin-right: auto; }
 @media (max-width: 860px) { .prae-text .herz-zeichen { margin-inline: auto; } .prae-bild img { width: min(78%, 320px); } }
 .prae-zeiten p, .prae-liste li { font-size: clamp(1.25rem, 1.55vw, 1.42rem); }
+/* Footer PC final (2026-10-20): niedrig, Bild nach Höhe skaliert, Texte direkt neben der Frau */
+@media (min-width: 1025px) {
+  .fuss { --fh: clamp(540px, 34vw, 620px); min-height: var(--fh); padding: 0 0 28px;
+    background: linear-gradient(to bottom, #083353 0%, #09476c 20%, #20658e 40%, #3b86ae 60%, #5ea7c7 80%, #7fc1d9 100%); }
+  .wolken { --wh: 130px; }
+  .fuss-bild { inset: 0 auto 0 0; height: 100%; width: auto; aspect-ratio: 1683 / 935; min-width: 0; }
+  .fuss-bild img { width: 100%; height: 100%; object-fit: cover; object-position: left bottom;
+    -webkit-mask-image: linear-gradient(to right, #000 55%, transparent 100%); mask-image: linear-gradient(to right, #000 55%, transparent 100%); }
+  .fuss-bild::after { display: none; }
+  .fuss-inhalt { margin-left: calc(var(--fh) * .62); margin-right: 0; max-width: 940px; padding: 150px var(--rand) 0 0; }
+  .fuss-spalten { grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: clamp(22px, 2.4vw, 40px); }
+  .fuss-marke { grid-column: auto; }
+  .fuss-unten { flex-direction: row; padding-right: 0; margin-top: 36px; }
+}
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .fuss-spalten { grid-template-columns: 1fr 1fr 1fr; }
+  .fuss-marke { grid-column: 1 / -1; }
+  .fuss-unten { flex-direction: column; padding-right: 90px; }
+}

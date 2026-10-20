@@ -969,3 +969,5 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 400; font-size: var(--t-text) !important; line-height: 1.6 !important; }
 .start .fach-satz, .fach-satz { font-size: var(--t-text) !important; line-height: 1.6 !important; }
 .mag .mag-name { font-size: var(--t-h2) !important; }
+/* Abstand nach dem Stärken-Bild, seit das Herzzeichen dort fehlt */
+.start .staerken + .partner { padding-top: clamp(64px, 8vw, 120px) !important; }

@@ -915,3 +915,17 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .mag .partner-karten { margin-top: 0; }
 .mag .knopf-reihe { margin-top: 32px; }
 .mag-partner-bild[hidden] + .mag-text { grid-column: 2; } @media (max-width: 700px) { .mag-partner-bild[hidden] + .mag-text { grid-column: auto; } }
+/* Partner: aufklappbare Bereiche (2026-10-20), ruhig mit feinen Linien, kein farbiger Kasten */
+.mag-akkordeon-teil .mag-breite { border-top: 0 !important; padding-top: 0 !important; }
+.mag-akkordeon { border-top: 1px solid rgba(185,115,138,.3); }
+.mag-akkordeon:last-of-type { border-bottom: 1px solid rgba(185,115,138,.3); }
+.mag-akkordeon summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: clamp(18px, 2vw, 26px) 0; }
+.mag-akkordeon summary::-webkit-details-marker { display: none; }
+.mag-akkordeon summary h2 { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: clamp(1.4rem, 2.1vw, 1.8rem); letter-spacing: -.035em; color: var(--tinte); transition: color .3s; }
+.mag-akkordeon summary:hover h2 { color: var(--pink-k); }
+.mag-plus { position: relative; flex: none; width: 18px; height: 18px; }
+.mag-plus::before, .mag-plus::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; background: var(--pink-k); translate: 0 -50%; transition: transform .35s var(--ease); }
+.mag-plus::after { transform: rotate(90deg); }
+.mag-akkordeon[open] .mag-plus::after { transform: rotate(0deg); }
+.mag-akkordeon .mag-text { padding: 0 0 clamp(28px, 3vw, 40px); max-width: 72ch; }
+.mag-akkordeon summary:focus-visible { outline: 2px solid var(--pink-k); outline-offset: 4px; }

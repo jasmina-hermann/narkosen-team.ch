@@ -807,3 +807,16 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
   .fuss-bild { height: 340px; margin-top: -40px; }
   .fuss-bild img { -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 40%); mask-image: linear-gradient(to bottom, transparent 0%, #000 40%); }
 }
+/* Bilder viereckig mit rosa Aura (2026-10-20, Jasmina) */
+.prae-bild img { border-radius: 0; aspect-ratio: auto; object-fit: fill;
+  box-shadow: 0 0 0 1px rgba(220,196,203,.55), 0 0 40px 6px rgba(220,196,203,.75), 0 0 110px 24px rgba(230,213,218,.55); }
+.schritte.mit-bild { border-top: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(40px, 6vw, 96px); margin-top: 0; }
+.schritte.mit-bild li { flex: 0 1 380px; border: 0 !important; }
+.schritte.mit-bild a { padding: 0; text-align: left; }
+.schritt-bild { display: block; margin-bottom: 30px; }
+.schritt-bild img { display: block; width: 100%; aspect-ratio: 487 / 457; object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(220,196,203,.55), 0 0 34px 4px rgba(220,196,203,.7), 0 0 90px 18px rgba(230,213,218,.5); transition: transform .6s var(--ease); }
+.schritte.mit-bild a:hover .schritt-bild img { transform: translateY(-4px); }
+.schritte.mit-bild .nr { font-family: "Plus Jakarta Sans", sans-serif; font-style: normal; font-weight: 700; font-size: clamp(3rem, 5vw, 4.4rem); line-height: 1; letter-spacing: -.04em; color: #e3cfd5; }
+.schritte.mit-bild .name { margin-top: 14px; font-size: clamp(1.25rem, 1.55vw, 1.42rem); }
+.prae-bild img, .schritt-bild img { box-shadow: 0 0 0 1px rgba(214,178,190,.6), 0 0 36px 8px rgba(214,178,190,.55), 0 0 90px 30px rgba(230,205,214,.45); }

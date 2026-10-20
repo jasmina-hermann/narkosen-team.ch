@@ -677,3 +677,30 @@ section { padding: clamp(64px, 8vw, 112px) 0; }
 .edel-knopf:hover, .start .edel-knopf:hover, .edel-knopf.voll:hover, .start .edel-knopf.voll:hover { background: none !important; color: var(--pink-k); }
 .teil-himmel .edel-knopf, .teil-himmel .edel-knopf:hover { color: #fff; border-color: rgba(255,255,255,.75); }
 .knopf-reihe, .start .knopf-reihe { gap: 18px 44px; }
+/* ---------- Footer neu (2026-10-20): Texte ruhig im dunklen Band, Bild darunter ---------- */
+.fuss { min-height: 0; padding: 0; display: flex; flex-direction: column; }
+.fuss-inhalt { padding-top: clamp(150px, 15vw, 230px); padding-bottom: clamp(36px, 4vw, 56px); }
+.fuss-spalten { margin: 0; width: 100%; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: clamp(28px, 4vw, 64px); }
+.fuss h3 { font-size: .68rem; letter-spacing: .2em; margin-bottom: 16px; }
+.fuss li + li { margin-top: 8px; }
+.fuss ul a { font-size: .88rem; opacity: .85; }
+.fuss-marke .logo { font-size: 1.25rem; }
+.fuss-marke p { font-size: .88rem; opacity: .7; }
+.fuss-unten { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: clamp(40px, 5vw, 64px); padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); }
+.fuss-unten p, .fuss .copy { position: static; color: rgba(255,255,255,.62); font-size: .8rem; font-weight: 400; }
+.fuss-unten a:hover { color: #fff; }
+.fuss-bild { position: relative; height: clamp(300px, 50vw, 780px); width: 100%; aspect-ratio: auto; min-width: 0; }
+.fuss-bild::after, .fuss-bild::after { -webkit-mask-image: none; mask-image: none; background: linear-gradient(to bottom, var(--nacht) 0%, rgba(8,52,79,.45) 8%, rgba(8,52,79,0) 20%); }
+@media (max-width: 1024px) {
+  .fuss { padding-bottom: 0; }
+  .fuss-spalten { grid-template-columns: 1fr 1fr 1fr; gap: 32px 24px; }
+  .fuss-marke { grid-column: 1 / -1; }
+  .fuss-bild { height: clamp(260px, 55vw, 420px); }
+}
+@media (max-width: 560px) {
+  .fuss-inhalt { padding-top: 170px; }
+  .fuss-spalten { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+  .fuss-marke { grid-column: 1 / -1; }
+  .fuss-unten { flex-direction: column; padding-right: 64px; }
+  .fuss-bild { height: 300px; }
+}

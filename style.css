@@ -981,7 +981,7 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 100' preserveAspectRatio='none'%3E%3Cpath d='M-2 52 H46 L58 86 L72 8 L84 58 L88 52 H142' fill='none' stroke='%23fff' stroke-width='7' stroke-linejoin='miter' stroke-miterlimit='3'/%3E%3C/svg%3E") repeat-x 0 50% / 1.75em 100%;
   animation: ekg-lauf 2.6s linear infinite; filter: drop-shadow(0 4px 18px rgba(8,52,79,.25)); }
 @keyframes ekg-lauf { from { background-position-x: 0; } to { background-position-x: 1.75em; } }
-@media (prefers-reduced-motion: reduce) { .ekg { animation: none; } }
+
 @media (max-aspect-ratio: 4/5) { .claim { width: calc(100vw - 20.5cqw); } }
 /* iPhone: Hero-Höhe beim Scrollen nicht mehr ändern (Adressleiste) – Höhe wird einmal beim Laden fixiert */
 .hero { height: max(var(--hero-h, 100svh), 100vw * 935 / 1683); }
@@ -997,3 +997,14 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 /* Footer: dieselbe bewegte EKG-Linie wie im Hero, hinter «simple smooth safe» (Jasmina 2026-10-21) */
 .fuss .fuss-claim { display: flex; align-items: center; gap: 10px; }
 .fuss .fuss-claim .ekg { flex: 0 0 auto; width: 120px; height: 1.6em; margin: 0; transform: none; filter: none; opacity: .9; }
+
+/* EKG-Bewegung robuster (Safari): statt background-position wird ein breiteres Band per transform verschoben.
+   Läuft auch bei «Bewegung reduzieren» weiter, nur langsamer. */
+.ekg { position: relative; overflow: hidden; background: none !important; animation: none !important; }
+.ekg::before { content: ""; position: absolute; top: 0; bottom: 0; left: -1.75em; right: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 100' preserveAspectRatio='none'%3E%3Cpath d='M-2 52 H46 L58 86 L72 8 L84 58 L88 52 H142' fill='none' stroke='%23fff' stroke-width='7' stroke-linejoin='miter' stroke-miterlimit='3'/%3E%3C/svg%3E") repeat-x 0 50% / 1.75em 100%;
+  animation: ekg-rechts 5s linear infinite; will-change: transform; }
+@keyframes ekg-rechts { from { transform: translate3d(0,0,0); } to { transform: translate3d(1.75em,0,0); } }
+@media (prefers-reduced-motion: reduce) { .ekg::before { animation-duration: 8s; } }
+/* Ausschläge tauchen nach «smooth» weich auf statt abgeschnitten */
+.claim .ekg { -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,.45) 0, #000 .35em); mask-image: linear-gradient(to right, rgba(0,0,0,.45) 0, #000 .35em); }

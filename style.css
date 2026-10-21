@@ -988,3 +988,12 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 
 /* Telefonnummer in der Hero-Schrift (Jasmina 2026-10-20) */
 .telefon, .start .telefon, .mag-telefon, .mag .mag-text p.mag-telefon, .mag-telefon a { font-family: "Plus Jakarta Sans", sans-serif !important; font-weight: 600 !important; font-style: normal !important; font-variant-numeric: lining-nums tabular-nums; letter-spacing: -.01em; font-size: clamp(1.4rem, 2vw, 1.75rem) !important; }
+
+/* Karriere (2026-10-21): dezentes Magazin-Layout wie Patient*innen */
+.mag-dreiklang { display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(18px, 4vw, 56px); font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: var(--t-h3); letter-spacing: -.03em; color: var(--tinte); }
+.mag-dreiklang span + span::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--pink-k); opacity: .6; margin-right: clamp(18px, 4vw, 56px); vertical-align: middle; }
+.mag-mwd { display: block; margin-top: 8px; font-family: "Inter", sans-serif; font-weight: 500; font-size: .72rem; letter-spacing: .14em; color: var(--pink-k); }
+.mag-links .edel-knopf + .edel-knopf { margin-left: 28px; }
+/* Footer: dieselbe bewegte EKG-Linie wie im Hero, hinter «simple smooth safe» (Jasmina 2026-10-21) */
+.fuss .fuss-claim { display: flex; align-items: center; gap: 10px; }
+.fuss .fuss-claim .ekg { flex: 0 0 auto; width: 120px; height: 1.6em; margin: 0; transform: none; filter: none; opacity: .9; }

@@ -8,7 +8,8 @@ const knopf = document.querySelector('.menu-knopf');
 knopf.onclick = () => {
   const offen = kopf.classList.toggle('offen');
   knopf.setAttribute('aria-expanded', offen);
-  knopf.setAttribute('aria-label', offen ? 'Menü schliessen' : 'Menü öffnen');
+  const en = document.documentElement.lang === 'en';
+  knopf.setAttribute('aria-label', offen ? (en ? 'Close menu' : 'Menü schliessen') : (en ? 'Open menu' : 'Menü öffnen'));
   document.body.style.overflow = offen ? 'hidden' : '';
 };
 addEventListener('keydown', e => { if (e.key === 'Escape' && kopf.classList.contains('offen')) knopf.click(); });

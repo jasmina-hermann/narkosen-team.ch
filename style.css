@@ -1008,3 +1008,12 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 @media (prefers-reduced-motion: reduce) { .ekg::before { animation-duration: 8s; } }
 /* Ausschläge tauchen nach «smooth» weich auf statt abgeschnitten */
 .claim .ekg { -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,.45) 0, #000 .35em); mask-image: linear-gradient(to right, rgba(0,0,0,.45) 0, #000 .35em); }
+
+/* Sprachumschalter DE / EN – nur Text, kein Kasten (2026-10-21) */
+.menu .sprache { display: flex; align-items: center; gap: 6px; font-size: .78rem; letter-spacing: .08em; }
+.menu .sprache span { opacity: .45; }
+.menu .sprache a { opacity: .6; padding: 0; }
+.menu .sprache a[aria-current] { opacity: 1; text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+/* Kleine Inter-Labels innerhalb von Fliesstext-Blöcken nicht von der Einheits-Typografie überschreiben */
+.mag .mag-text p.mag-rolle { font-family: "Inter", sans-serif !important; font-size: .72rem !important; line-height: 1.7 !important; letter-spacing: .14em; }
+.mag .mag-text p.mag-kicker, .mag-text .mag-kicker { font-family: "Inter", sans-serif !important; font-size: .7rem !important; line-height: 1.4 !important; letter-spacing: .22em; }

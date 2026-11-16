@@ -1017,3 +1017,13 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 /* Kleine Inter-Labels innerhalb von Fliesstext-Blöcken nicht von der Einheits-Typografie überschreiben */
 .mag .mag-text p.mag-rolle { font-family: "Inter", sans-serif !important; font-size: .72rem !important; line-height: 1.7 !important; letter-spacing: .14em; }
 .mag .mag-text p.mag-kicker, .mag-text .mag-kicker { font-family: "Inter", sans-serif !important; font-size: .7rem !important; line-height: 1.4 !important; letter-spacing: .22em; }
+
+/* ---------- Header neu (Jasmina 2026-11-16, Kunde) ----------
+   Startseite: EKG-Linie steht still und beginnt am unteren Ende des «h».
+   Unterseiten: nur der Seitenname im Bild, wie auf narkose-team.ch. */
+.claim .ekg { -webkit-mask-image: none !important; mask-image: none !important; margin-left: -.03em; transform: translateY(var(--ekg-y, .355em)); }
+.ekg::before { animation: none !important; left: 0 !important; background-position: 0 50% !important; }
+.claim.seitenname { top: auto; bottom: 22cqh; width: auto; font-size: clamp(1.8rem, 4.2cqh, 3.2rem); letter-spacing: -.035em; line-height: 1.1; max-width: calc(100vw - 24cqw - var(--rand)); }
+@media (max-aspect-ratio: 4/5) { .claim.seitenname { top: auto; bottom: 30cqh; font-size: clamp(1.5rem, 6.5vw, 2.2rem); } }
+/* Handy: Seitenname links im Himmel über der Wolke, darf umbrechen */
+@media (max-aspect-ratio: 4/5) { .claim.seitenname { left: var(--rand); top: 4cqh; bottom: auto; width: calc(100vw - 2 * var(--rand)); max-width: none; white-space: normal; } }

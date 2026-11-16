@@ -1311,3 +1311,16 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .fuss-fragen-titel { text-transform: lowercase; }
 .karussell-stimme, .karussell-stimme blockquote { text-align: left; }
 @media (max-width: 760px) { .karussell-band { animation-duration: 110s; } .karussell-stimme { width: 78vw; } }
+
+/* Google-Rezensionen im Karussell (Jasmina 2026-11-16) */
+.g-gesamt { display: flex; align-items: center; justify-content: center; gap: 10px; margin: -24px auto clamp(36px, 4vw, 56px); width: max-content; max-width: 100%; flex-wrap: wrap; color: var(--tinte); text-decoration: none; font-family: "Plus Jakarta Sans", sans-serif; }
+.g-gesamt .g-logo { width: 22px; height: 22px; }
+.g-note { font-weight: 700; font-size: 1.15rem; }
+.g-zahl { font-size: .9rem; color: rgba(14,42,64,.7); text-decoration: underline; text-decoration-color: var(--pink); text-underline-offset: 4px; }
+.g-sterne { color: #fbbc04; letter-spacing: .08em; font-size: 1rem; line-height: 1; }
+.g-stimme .g-kopf { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; text-transform: none; letter-spacing: 0; }
+.g-avatar { flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-family: "Plus Jakarta Sans", sans-serif; font-size: 1.05rem; font-weight: 500; }
+.g-name { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 600; font-size: .98rem; color: var(--tinte); }
+.g-stimme .g-kopf .g-logo { width: 18px; height: 18px; margin-left: auto; }
+.g-stimme .g-sterne { display: block; margin: 0 0 12px; }
+.g-stimme blockquote::before, .g-stimme blockquote::after { content: none; }

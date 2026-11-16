@@ -1044,3 +1044,5 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .claim.seitenname { top: auto; bottom: 20cqh; width: auto; }
   .inhalt > :first-child, .inhalt > .verlauf > :first-child, .inhalt > .mag:first-child > :first-child { padding-top: clamp(36px, 3.5vw, 56px) !important; }
 }
+/* EKG mit klarem Abstand zum «h», auf Höhe der Grundlinie (Jasmina 2026-11-16) */
+.claim .ekg { margin-left: .14em !important; }

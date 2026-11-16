@@ -1160,11 +1160,3 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 /* Logo aus PDF, weiss (Jasmina 2026-11-16) */
 .logo .logo-bild { display: block; width: auto; height: .82em; margin: 0; }
 .kopf .logo, header .logo { color: #fff; }
-/* Foto so verschieben, dass Gunnars Ellbogen genau über der Schere steht (Jasmina 2026-11-16).
-   Bild 1536x1024, linke Armkante bei x≈465 → Versatz = -465/1024 × Bildhöhe */
-@media (min-width: 900px) {
-  :root { --dh: min(calc(100svh - 70px), 60vw, 860px); }
-  .duo-rahmen { min-height: var(--dh); }
-  .duo-bild { height: var(--dh); align-self: end; }
-  .duo-bild img { object-position: calc(var(--dh) * -0.454 + 4px) 30%; }
-}

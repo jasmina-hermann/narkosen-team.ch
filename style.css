@@ -1382,3 +1382,4 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 @media (min-width: 761px) and (max-width: 1000px) { .start .kapitel.mehr .serif-riesig { white-space: normal; font-size: clamp(3rem, 9vw, 5rem) !important; color: var(--tinte) !important; text-shadow: none; } }
 @media (min-width: 1001px) { .start .kapitel.mehr .serif-riesig { font-size: clamp(3rem, 5.6vw, 7rem) !important; } }
 @media (min-width: 1001px) { .start .kapitel.mehr .serif-riesig { color: rgba(255,255,255,.62) !important; text-shadow: 0 0 1px rgba(120,100,110,.10), 0 4px 40px rgba(120,100,110,.12) !important; } }  /* durchsichtig wie AUMAR (Jasmina 2026-11-16) */
+@media (min-width: 1001px) { .start .kapitel.mehr .serif-riesig { color: rgba(19,51,39,.55) !important; text-shadow: none !important; } }  /* Grün wie Stärken-Boxen, durchsichtig (Jasmina 2026-11-16) */

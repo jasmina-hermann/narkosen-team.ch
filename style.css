@@ -1157,3 +1157,6 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .start .fach-teil .kapitaelchen, .start .fach-teil .fach-titel { padding-left: clamp(40px, 5vw, 72px); padding-right: clamp(32px, 4vw, 64px); }
   .start .fach-karten, .start .fach-teil .fach-satz, .start .fach-teil .fach-gruss { padding-right: clamp(24px, 4vw, 64px); }
 }
+/* Logo aus PDF, weiss (Jasmina 2026-11-16) */
+.logo .logo-bild { display: block; width: auto; height: .82em; margin: 0; }
+.kopf .logo, header .logo { color: #fff; }

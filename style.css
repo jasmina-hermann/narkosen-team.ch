@@ -1030,3 +1030,17 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 /* EKG in der Form des Logos (Jasmina 2026-11-16): flach, kleiner Ausschlag hoch, tief runter, hoch, zurück; nahtlos ans «h» */
 .ekg::before { left: 0 !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 100' preserveAspectRatio='none'%3E%3Cpath d='M-2 52 H40 L52 16 L68 84 L80 34 L88 52 H142' fill='none' stroke='%23fff' stroke-width='7' stroke-linejoin='round' stroke-linecap='square'/%3E%3C/svg%3E") !important; background-position: 0 50% !important; }
 .claim .ekg { margin-left: -.06em; }
+
+/* ---------- PC: Header niedriger (Jasmina 2026-11-16) ----------
+   Bild + erster Titel darunter auf einen Blick, wie auf narkose-team.ch: Bild in voller Höhe links,
+   rechts geht der Himmel als Verlauf in denselben Farben weiter. */
+@media (min-width: 1000px) and (min-aspect-ratio: 1/1) {
+  .hero { height: clamp(460px, calc(var(--hero-h, 100svh) - 250px), calc(100vw * 935 / 1683)) !important; min-height: 0;
+    background: linear-gradient(to bottom, #083353 0%, #063a5f 10%, #09476c 20%, #135680 30%, #20658e 40%, #2e77a0 50%, #3b86ae 60%, #4b97bb 70%, #5fa8c9 80%, #72b7d4 90%, #80c4db 100%); }
+  .buehne::after { display: none; }
+  .hero::after { content: ""; display: block !important; position: absolute; left: 0; right: 0; bottom: 0; height: 13%; z-index: 1; pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.08) 30%, rgba(255,255,255,.35) 55%, rgba(255,255,255,.75) 78%, #fff 100%); }
+  .claim, .claim.seitenname { left: 36cqw; width: calc(100vw - 36cqw); }
+  .claim.seitenname { top: auto; bottom: 20cqh; width: auto; }
+  .inhalt > :first-child, .inhalt > .verlauf > :first-child, .inhalt > .mag:first-child > :first-child { padding-top: clamp(36px, 3.5vw, 56px) !important; }
+}

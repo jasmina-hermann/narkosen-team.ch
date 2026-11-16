@@ -1186,3 +1186,22 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .start .fach-teil .fach-link { margin-left: var(--ellb) !important; }
 }
 @media (min-width: 900px) { .start .fach-karten { gap: clamp(16px, 2vw, 36px) !important; } }
+
+/* Unsere Stärken wie alte Seite: rosa Wolkenhintergrund, 5 Felder mit wechselnden Wörtern (Jasmina 2026-11-16) */
+.start .wolken-staerken { position: relative; padding: clamp(110px, 12vw, 200px) 24px !important; background: #ece3e4 url("bilder/wolken-rosa-2000.jpg") center 40% / cover no-repeat; }
+@media (max-width: 760px) { .start .wolken-staerken { background-image: url("bilder/wolken-rosa-1000.jpg"); } }
+.wolken-staerken::before, .wolken-staerken::after { content: ""; position: absolute; left: 0; right: 0; height: clamp(60px, 8vw, 120px); pointer-events: none; }
+.wolken-staerken::before { top: 0; background: linear-gradient(#fff, rgba(255,255,255,0)); }
+.wolken-staerken::after { bottom: 0; background: linear-gradient(rgba(255,255,255,0), #fff); }
+.felder { list-style: none; margin: 0 auto; padding: 0; position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 28px); width: min(1300px, 100%); }
+.feld { position: relative; aspect-ratio: 1; display: grid; place-items: center; background: rgba(255, 255, 255, .42); border: 1px solid rgba(255, 255, 255, .7); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.feld .wort { grid-area: 1 / 1; padding: 0 10px; text-align: center; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 600; letter-spacing: -.02em; font-size: clamp(.95rem, 1.45vw, 1.45rem); color: var(--tinte); text-transform: lowercase; opacity: 0; animation: wort-wechsel 14s infinite; animation-delay: calc(var(--i) * .35s + var(--r) * 3.5s); }
+.feld .wort::after { content: "."; }
+.feld .w1 { --r: 0; } .feld .w2 { --r: 1; } .feld .w3 { --r: 2; } .feld .w4 { --r: 3; }
+@keyframes wort-wechsel { 0% { opacity: 0; transform: translateY(6px); } 4%, 22% { opacity: 1; transform: none; } 27%, 100% { opacity: 0; transform: translateY(-6px); } }
+@media (prefers-reduced-motion: reduce) { .feld .wort { animation: none; } .feld .w1 { opacity: 1; } }
+@media (max-width: 760px) {
+  .felder { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(420px, 100%); }
+  .feld:last-child { grid-column: 1 / -1; aspect-ratio: auto; height: calc((min(420px, 100vw - 48px) - 12px) / 2); }
+  .feld .wort { font-size: 1.1rem; }
+}

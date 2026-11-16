@@ -1104,3 +1104,4 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 @media (max-width: 899px) {
   .start .duo { padding-top: 56px !important; }
 }
+.start .duo + .kapitel { padding-top: clamp(80px, 9vw, 140px) !important; }

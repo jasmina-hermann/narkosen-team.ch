@@ -1369,3 +1369,15 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .start .stimmen-karussell .zeige.sichtbar { opacity: 1 !important; transform: none !important; filter: none; }
 .start .stimmen-karussell .g-gesamt.zeige { transition-delay: .3s !important; }
 .start .stimmen-karussell .karussell.zeige { transition-delay: .6s !important; }
+
+/* «wir können mehr als narkose» gross und fein quer über das Bild, Stil wie Beispiel AUMAR (Jasmina 2026-11-16) */
+@media (min-width: 761px) {
+  .start .kapitel.mehr { align-items: center; justify-content: center; }
+  .start .kapitel.mehr .schmal { padding: clamp(60px, 7vw, 120px) clamp(20px, 3vw, 48px) !important; text-align: center; }
+  .start .kapitel.mehr .serif-riesig { text-align: center; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 300 !important; font-size: clamp(3rem, 7.2vw, 8.6rem) !important; line-height: 1; letter-spacing: .02em !important; color: rgba(255,255,255,.92) !important; text-shadow: 0 2px 30px rgba(90,70,80,.28), 0 0 2px rgba(90,70,80,.12); margin: 0 0 clamp(26px, 3vw, 44px) !important; white-space: nowrap; }
+  .start .kapitel.mehr .serif-riesig em { font-style: normal; font-weight: inherit; }
+  .start .kapitel.mehr .serif-lead { text-align: center; margin: 0 auto clamp(30px, 3vw, 46px) !important; max-width: none; text-transform: uppercase; letter-spacing: .08em; font-weight: 500; font-size: clamp(.95rem, 1.5vw, 1.55rem) !important; color: var(--tinte); }
+  .start .kapitel.mehr .knopf-reihe { justify-content: center !important; }
+}
+@media (min-width: 761px) and (max-width: 1000px) { .start .kapitel.mehr .serif-riesig { white-space: normal; font-size: clamp(3rem, 9vw, 5rem) !important; color: var(--tinte) !important; text-shadow: none; } }
+@media (min-width: 1001px) { .start .kapitel.mehr .serif-riesig { font-size: clamp(3rem, 5.6vw, 7rem) !important; } }

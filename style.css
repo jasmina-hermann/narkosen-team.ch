@@ -1362,3 +1362,4 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   -webkit-mask-image: linear-gradient(transparent, #000 35%, #000 70%, transparent); mask-image: linear-gradient(transparent, #000 35%, #000 70%, transparent); z-index: 1; }
 .start .kapitel.mehr.ue-wolke::after { z-index: 0; }
 @media (max-width: 1000px) { .start .kapitel.mehr.ue-wolke .schmal { padding-bottom: 140px; } }
+.start .kapitel.duo { padding-bottom: clamp(60px, 7vw, 120px) !important; }  /* Abstand vor Stärken (Jasmina 2026-11-16) */

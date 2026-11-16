@@ -63,9 +63,15 @@ if (wa) {
     if (w.length < 2) return;
     setTimeout(function () {
       setInterval(function () {
-        w[i].classList.remove('an');
+        var alt = w[i];
+        alt.classList.remove('an');
+        alt.classList.add('weg');
+        setTimeout(function () { alt.classList.remove('weg'); }, 1500);
         i = (i + 1) % w.length;
         w[i].classList.add('an');
+        f.classList.remove('schimmer');
+        void f.offsetWidth;
+        f.classList.add('schimmer');
       }, 4500);
     }, k * 1000);
   });

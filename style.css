@@ -1160,3 +1160,9 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 /* Logo aus PDF, weiss (Jasmina 2026-11-16) */
 .logo .logo-bild { display: block; width: auto; height: .82em; margin: 0; }
 .kopf .logo, header .logo { color: #fff; }
+/* Symbole rechts unter Gunnars Ellbogen (Foto unverschoben, Jasmina 2026-11-16).
+   Ellbogen-Abstand in der Bildspalte = 0.52·Spaltenbreite − 0.326·Bildhöhe */
+@media (min-width: 900px) {
+  :root { --dh: min(calc(100svh - 70px), 60vw, 860px); --ellbogen: max(0px, calc(0.2453 * min(100vw, 1600px) - 0.326 * var(--dh))); }
+  .start .fach-karten, .start .fach-teil .fach-satz, .start .fach-teil .fach-link, .start .fach-teil .fach-gruss { margin-left: var(--ellbogen) !important; }
+}

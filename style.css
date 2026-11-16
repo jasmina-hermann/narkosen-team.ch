@@ -1162,5 +1162,6 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .kopf .logo, header .logo { color: #fff; }
 /* Bildspalte und Fachbereich-Symbole gemeinsam weiter links (Jasmina 2026-11-16, Option «Alles nach links») */
 @media (min-width: 900px) {
-  .duo-rahmen, .start .fach-teil .fach-rahmen { grid-template-columns: 1fr 1.1fr !important; }
+  .duo-rahmen, .start .fach-teil .fach-rahmen { grid-template-columns: 1fr 1.35fr !important; }
 }
+@media (max-width: 1299px) { .start .duo .duo-fliess { text-align: left; } }

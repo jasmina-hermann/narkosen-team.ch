@@ -1256,3 +1256,17 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .kreuz .wechsel.schimmer { animation: kreuz-atem-glanz 2.8s ease-in-out; }
 @keyframes kreuz-atem { 0% { opacity: 0; } 45% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes kreuz-atem-glanz { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } 45% { box-shadow: 0 0 40px 6px rgba(255,255,255,.55); } 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } }
+
+/* Stärken: 2 grüne + 2 rosa Kästchen, grösser und weiter auseinander (Jasmina 2026-11-16) */
+.felder.kreuz { --s: clamp(130px, 16vw, 300px); --g: clamp(28px, 6vw, 120px); }
+@media (min-width: 761px) and (max-width: 1100px) { .felder.kreuz { --s: 20vw; --g: 6vw; } }
+@media (max-width: 760px) { .felder.kreuz { --s: calc((100vw - 72px) / 3); --g: 16px; } }
+.kreuz .ton-gruen { background: rgba(19, 51, 39, .9); }
+.kreuz .ton-rosa { background: rgba(231, 219, 223, .85); }
+.kreuz .ton-gruen .wort { color: #fff; }
+.kreuz .ton-gruen .wort-icon svg { stroke: #fff; }
+.kreuz .ton-gruen.schimmer::before { background: rgba(255,255,255,.12); }
+.kreuz .wort { font-size: clamp(.85rem, 1.3vw, 1.35rem); }
+.kreuz .mitte .wort { font-size: clamp(1rem, 1.55vw, 1.6rem); }
+.kreuz .wort-icon svg { width: clamp(22px, 2.3vw, 40px) !important; height: clamp(22px, 2.3vw, 40px) !important; }
+@media (max-width: 760px) { .kreuz .wort { font-size: .72rem; } .kreuz .mitte .wort { font-size: .85rem; } }

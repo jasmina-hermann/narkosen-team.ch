@@ -1151,3 +1151,9 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .start .fach-teil .fach-link { grid-column: 2; grid-row: 4; justify-self: start; }
   .start .fach-teil .fach-gruss { grid-column: 2; grid-row: 5; }
 }
+/* Fachbereiche am Duo-Raster ausrichten: rechte Spalte beginnt an der Bildkante (Jasmina 2026-11-16) */
+@media (min-width: 900px) {
+  .start .fach-teil .fach-rahmen { width: 100%; max-width: 1600px; padding-inline: 0; grid-template-columns: 1.12fr 1fr; column-gap: 0; }
+  .start .fach-teil .kapitaelchen, .start .fach-teil .fach-titel { padding-left: clamp(40px, 5vw, 72px); padding-right: clamp(32px, 4vw, 64px); }
+  .start .fach-karten, .start .fach-teil .fach-satz, .start .fach-teil .fach-gruss { padding-right: clamp(24px, 4vw, 64px); }
+}

@@ -54,3 +54,17 @@ if (wa) {
   setze();
   addEventListener('resize', () => { if (innerWidth !== breite) { breite = innerWidth; setze(); } });
 })();
+
+// Unsere Stärken: Wörter in den 4 Kästchen wechseln nacheinander (Jasmina 2026-11-16)
+(function () {
+  var felder = document.querySelectorAll('.kreuz .wechsel');
+  if (!felder.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var stand = Array.prototype.map.call(felder, function () { return 0; }), k = 0;
+  setInterval(function () {
+    var f = felder[k], w = f.querySelectorAll('.wort');
+    w[stand[k]].classList.remove('an');
+    stand[k] = (stand[k] + 1) % w.length;
+    w[stand[k]].classList.add('an');
+    k = (k + 1) % felder.length;
+  }, 1600);
+})();

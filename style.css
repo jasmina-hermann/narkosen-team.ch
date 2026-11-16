@@ -1187,21 +1187,29 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 }
 @media (min-width: 900px) { .start .fach-karten { gap: clamp(16px, 2vw, 36px) !important; } }
 
-/* Unsere Stärken wie alte Seite: rosa Wolkenhintergrund, 5 Felder mit wechselnden Wörtern (Jasmina 2026-11-16) */
+/* Unsere Stärken wie alte Seite: rosa Wolken, «unsere stärken» in der Mitte, 4 Kästchen mit wechselnden Wörtern (Jasmina 2026-11-16) */
 .start .wolken-staerken { position: relative; padding: clamp(110px, 12vw, 200px) 24px !important; background: #ece3e4 url("bilder/wolken-rosa-2000.jpg") center 40% / cover no-repeat; }
 @media (max-width: 760px) { .start .wolken-staerken { background-image: url("bilder/wolken-rosa-1000.jpg"); } }
 .wolken-staerken::before, .wolken-staerken::after { content: ""; position: absolute; left: 0; right: 0; height: clamp(60px, 8vw, 120px); pointer-events: none; }
 .wolken-staerken::before { top: 0; background: linear-gradient(#fff, rgba(255,255,255,0)); }
 .wolken-staerken::after { bottom: 0; background: linear-gradient(rgba(255,255,255,0), #fff); }
-.felder { list-style: none; margin: 0 auto; padding: 0; position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 28px); width: min(1300px, 100%); }
-.feld { position: relative; aspect-ratio: 1; display: grid; place-items: center; background: rgba(255, 255, 255, .42); border: 1px solid rgba(255, 255, 255, .7); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.feld .wort { grid-area: 1 / 1; padding: 0 10px; text-align: center; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 600; letter-spacing: -.02em; font-size: clamp(.95rem, 1.45vw, 1.45rem); color: var(--tinte); text-transform: lowercase; opacity: 0; animation: wort-wechsel 14s infinite; animation-delay: calc(var(--i) * .35s + var(--r) * 3.5s); }
-.feld .wort::after { content: "."; }
-.feld .w1 { --r: 0; } .feld .w2 { --r: 1; } .feld .w3 { --r: 2; } .feld .w4 { --r: 3; }
-@keyframes wort-wechsel { 0% { opacity: 0; transform: translateY(6px); } 4%, 22% { opacity: 1; transform: none; } 27%, 100% { opacity: 0; transform: translateY(-6px); } }
-@media (prefers-reduced-motion: reduce) { .feld .wort { animation: none; } .feld .w1 { opacity: 1; } }
+.felder.kreuz { --s: clamp(96px, 10vw, 200px); --g: clamp(14px, 2.4vw, 48px); list-style: none; margin: 0 auto; padding: 0; position: relative; z-index: 1; width: calc(3 * var(--s) + 2 * var(--g)); height: calc(2 * var(--s) + var(--g)); }
+.kreuz .feld { position: absolute; width: var(--s); height: var(--s); display: grid; place-items: center; }
+.kreuz .oben-links { left: 0; top: 0; }
+.kreuz .oben-rechts { right: 0; top: 0; }
+.kreuz .unten-links { left: 0; bottom: 0; }
+.kreuz .unten-rechts { right: 0; bottom: 0; }
+.kreuz .mitte { left: calc(var(--s) + var(--g)); top: calc((var(--s) + var(--g)) / 2); background: rgba(255, 255, 255, .78); }
+.kreuz .ton-creme { background: rgba(246, 247, 236, .78); }
+.kreuz .ton-rosa { background: rgba(231, 219, 223, .78); }
+.kreuz .wort { grid-area: 1 / 1; padding: 0 8px; text-align: center; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 500; letter-spacing: -.01em; font-size: clamp(.78rem, 1.15vw, 1.2rem); color: var(--tinte); text-transform: lowercase; opacity: 0; transition: opacity .9s ease; }
+.kreuz .wechsel .wort::after { content: "."; }
+.kreuz .wort.an { opacity: 1; }
+.kreuz .mitte .wort { font-weight: 700; font-size: clamp(.9rem, 1.3vw, 1.35rem); line-height: 1.2; max-width: 8ch; }
+.kreuz .wort { transition: opacity .6s ease; }
+.kreuz .wort.an { transition-delay: .6s; }
 @media (max-width: 760px) {
-  .felder { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(420px, 100%); }
-  .feld:last-child { grid-column: 1 / -1; aspect-ratio: auto; height: calc((min(420px, 100vw - 48px) - 12px) / 2); }
-  .feld .wort { font-size: 1.1rem; }
+  .felder.kreuz { --s: min(112px, calc((100vw - 60px) / 3)); --g: 12px; }
+  .kreuz .wort { font-size: .72rem; padding: 0 4px; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: anywhere; }
+  .kreuz .mitte .wort { font-size: .85rem; }
 }

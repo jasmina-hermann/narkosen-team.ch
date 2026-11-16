@@ -1109,3 +1109,15 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 @media (min-width: 900px) {
   .duo-rahmen { max-width: 1440px; margin: 0 auto; min-height: min(calc(100svh - 70px), 60vw, 860px); }
 }
+/* Duo: grösserer Abstand nach dem Titel, Text breit im Blocksatz (Jasmina 2026-11-16) */
+.start .duo .duo-fliess { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+@media (min-width: 900px) {
+  .duo-rahmen { grid-template-columns: 1.12fr 1fr; }
+  .duo-text { max-width: 860px; width: 100%; justify-self: end; padding: 64px clamp(40px, 5vw, 80px) 64px clamp(40px, 8vw, 140px); }
+  .start .duo-titel { max-width: 560px; margin-bottom: clamp(80px, 9vw, 140px) !important; }
+  .duo-bild img { object-position: 52% 30%; }
+}
+@media (min-width: 900px) {
+  .duo-rahmen { max-width: 1600px; }
+  .duo-text { padding-left: clamp(40px, 5vw, 72px); padding-right: clamp(32px, 4vw, 64px); }
+}

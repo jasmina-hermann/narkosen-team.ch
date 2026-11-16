@@ -1046,3 +1046,10 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 }
 /* EKG mit klarem Abstand zum «h», auf Höhe der Grundlinie (Jasmina 2026-11-16) */
 .claim .ekg { margin-left: .14em !important; }
+
+/* Startseite PC: im ersten Blick nur Header + «persönlich. mobil. exklusiv.», der Text folgt erst beim Scrollen (Jasmina 2026-11-16) */
+@media (min-width: 1000px) and (min-aspect-ratio: 1/1) {
+  :root { --hh: clamp(460px, calc(var(--hero-h, 100svh) - 250px), calc(100vw * 935 / 1683)); }
+  .hero { height: var(--hh) !important; }
+  .start .intro .serif-lead { margin-top: max(80px, calc(var(--hero-h, 100svh) - var(--hh) - 56px - 64px + 48px)) !important; }
+}

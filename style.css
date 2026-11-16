@@ -1349,3 +1349,8 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .wolken-staerken::before { background: linear-gradient(#f6f3ee, rgba(246,243,238,0)); }
 .wolken-staerken::after { background: linear-gradient(rgba(246,243,238,0), #f6f3ee); }
 .start .wolken-staerken + .fach-teil { background: linear-gradient(to bottom, #f6f3ee 0, #fbfaf7 clamp(80px, 9vw, 140px), #fff clamp(220px, 22vw, 340px)); }
+
+/* Übergang Wolkenbild → Rezensionen: weicher Nebel ins Weiss + viel mehr Abstand (Jasmina 2026-11-16) */
+.start .kapitel.mehr::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: clamp(90px, 10vw, 180px); background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.7) 60%, #fff); pointer-events: none; }
+.start .kapitel.mehr .schmal { position: relative; z-index: 1; }
+.start .stimmen-karussell { padding-top: clamp(110px, 11vw, 200px) !important; }

@@ -1344,3 +1344,8 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .start .kapitel.mehr .schmal { position: relative; padding: 10px 48px 80px; }
   .start .kapitel.mehr .serif-lead { max-width: 36ch; }
 }
+
+/* Stärken jetzt zwischen Bild und Fachbereichen: Übergänge im warmen Ton (Jasmina 2026-11-16) */
+.wolken-staerken::before { background: linear-gradient(#f6f3ee, rgba(246,243,238,0)); }
+.wolken-staerken::after { background: linear-gradient(rgba(246,243,238,0), #f6f3ee); }
+.start .wolken-staerken + .fach-teil { background: linear-gradient(to bottom, #f6f3ee 0, #fbfaf7 clamp(80px, 9vw, 140px), #fff clamp(220px, 22vw, 340px)); }

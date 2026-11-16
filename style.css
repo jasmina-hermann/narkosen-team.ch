@@ -1270,3 +1270,11 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .kreuz .mitte .wort { font-size: clamp(1rem, 1.55vw, 1.6rem); }
 .kreuz .wort-icon svg { width: clamp(22px, 2.3vw, 40px) !important; height: clamp(22px, 2.3vw, 40px) !important; }
 @media (max-width: 760px) { .kreuz .wort { font-size: .72rem; } .kreuz .mitte .wort { font-size: .85rem; } }
+
+/* Stärken: Glas-Kästchen wie beim iPhone (Jasmina 2026-11-16) */
+.kreuz .feld { --glas-schatten: inset 0 1px 0 rgba(255,255,255,.55), inset 0 0 0 1px rgba(255,255,255,.28), 0 10px 40px rgba(60,40,50,.10);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5); backdrop-filter: blur(18px) saturate(1.5); box-shadow: var(--glas-schatten); border-radius: 0; }
+.kreuz .mitte { background: rgba(255,255,255,.42); }
+.kreuz .ton-rosa { background: rgba(236,214,222,.38); }
+.kreuz .ton-gruen { background: rgba(19,51,39,.62); --glas-schatten: inset 0 1px 0 rgba(255,255,255,.22), inset 0 0 0 1px rgba(255,255,255,.12), 0 10px 40px rgba(20,40,30,.18); }
+@keyframes kreuz-atem-glanz { 0%, 100% { box-shadow: var(--glas-schatten); } 45% { box-shadow: var(--glas-schatten), 0 0 40px 6px rgba(255,255,255,.55); } }

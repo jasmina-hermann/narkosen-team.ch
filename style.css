@@ -1105,3 +1105,7 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .start .duo { padding-top: 56px !important; }
 }
 .start .duo + .kapitel { padding-top: clamp(80px, 9vw, 140px) !important; }
+/* Duo: beim Herauszoomen / grossen Bildschirmen nicht mitwachsen (Jasmina 2026-11-16) */
+@media (min-width: 900px) {
+  .duo-rahmen { max-width: 1440px; margin: 0 auto; min-height: min(calc(100svh - 70px), 60vw, 860px); }
+}

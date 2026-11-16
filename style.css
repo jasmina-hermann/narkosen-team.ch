@@ -1250,3 +1250,9 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .kreuz .wechsel .wort .wort-icon, .kreuz .wechsel .wort .wort-text { transform: translate3d(0,12px,0); transition: opacity 1.2s cubic-bezier(.22,.61,.36,1), filter 1.2s cubic-bezier(.22,.61,.36,1), transform 1.4s cubic-bezier(.22,.61,.36,1); }
 .kreuz .wechsel .wort.an .wort-icon, .kreuz .wechsel .wort.an .wort-text { transform: translate3d(0,0,0); }
 .kreuz .wechsel .wort.weg .wort-icon, .kreuz .wechsel .wort.weg .wort-text { transform: translate3d(0,-12px,0); }
+/* Atemzug statt Lichtschimmer: Kästchen wird beim Wechsel sanft heller und leuchtet leicht nach aussen (Jasmina 2026-11-16) */
+.kreuz .wechsel::before { inset: 0; background: rgba(255,255,255,.45); background-size: auto; background-position: 0 0; opacity: 0; }
+.kreuz .wechsel.schimmer::before { animation: kreuz-atem 2.8s ease-in-out; }
+.kreuz .wechsel.schimmer { animation: kreuz-atem-glanz 2.8s ease-in-out; }
+@keyframes kreuz-atem { 0% { opacity: 0; } 45% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes kreuz-atem-glanz { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } 45% { box-shadow: 0 0 40px 6px rgba(255,255,255,.55); } 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } }

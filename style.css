@@ -1206,8 +1206,8 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .kreuz .wechsel .wort::after { content: "."; }
 .kreuz .wort.an { opacity: 1; }
 .kreuz .mitte .wort { font-weight: 700; font-size: clamp(.9rem, 1.3vw, 1.35rem); line-height: 1.2; max-width: 8ch; }
-.kreuz .wort { transition: opacity .6s ease; }
-.kreuz .wort.an { transition-delay: .6s; }
+.kreuz .wort { transition: opacity .9s ease; }
+.kreuz .wort.an { transition-delay: .9s; }
 @media (max-width: 760px) {
   .felder.kreuz { --s: min(112px, calc((100vw - 60px) / 3)); --g: 12px; }
   .kreuz .wort { font-size: .72rem; padding: 0 4px; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: anywhere; }

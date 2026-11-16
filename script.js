@@ -66,7 +66,7 @@ if (wa) {
         w[i].classList.remove('an');
         i = (i + 1) % w.length;
         w[i].classList.add('an');
-      }, 3000);
-    }, k * 700);
+      }, 4500);
+    }, k * 1000);
   });
 })();

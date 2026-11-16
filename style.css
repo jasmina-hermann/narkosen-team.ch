@@ -1072,3 +1072,23 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .start .duo-titel { font-size: 26px; }
   .duo-bild { max-width: none; }
 }
+
+/* Duo PC randlos wie senskin: Text links, Bild füllt rechte Hälfte (Jasmina 2026-11-16) */
+@media (min-width: 900px) {
+  .start .duo { padding: 0 !important; margin-top: clamp(64px, 8vw, 110px); }
+  .duo-rahmen { width: 100%; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; min-height: min(calc(100svh - 70px), 60vw); }
+  .duo-text { justify-self: center; align-self: center; max-width: 440px; padding: 64px 48px; }
+  .duo-bild { max-width: none; height: 100%; position: relative; }
+  .duo-bild img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 51% 30%; -webkit-mask-image: none; mask-image: none; }
+}
+@media (min-width: 1000px) and (min-aspect-ratio: 1/1) {
+  .start .duo { padding-top: 0 !important; margin-top: max(80px, calc(var(--hero-h, 100svh) - var(--hh) - 56px - 64px + 48px)); }
+}
+@media (max-width: 899px) {
+  .duo-bild img { -webkit-mask-image: none; mask-image: none; }
+}
+@media (max-width: 899px) {
+  .duo-rahmen { width: 100%; }
+  .duo-text { padding: 0 24px; }
+  .duo-bild img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 51% 30%; }
+}

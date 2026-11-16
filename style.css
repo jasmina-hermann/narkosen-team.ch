@@ -1363,3 +1363,9 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .start .kapitel.mehr.ue-wolke::after { z-index: 0; }
 @media (max-width: 1000px) { .start .kapitel.mehr.ue-wolke .schmal { padding-bottom: 140px; } }
 .start .kapitel.duo { padding-bottom: clamp(60px, 7vw, 120px) !important; }  /* Abstand vor Stärken (Jasmina 2026-11-16) */
+
+/* Rezensionen: Titel, Google-Zeile und Karussell schweben nacheinander sanft von unten herein (Jasmina 2026-11-16, läuft auch bei «Bewegung reduzieren») */
+.start .stimmen-karussell .zeige { opacity: 0 !important; transform: translate3d(0, 60px, 0) !important; filter: blur(6px); transition: opacity 1.6s cubic-bezier(.22,.61,.36,1), transform 1.8s cubic-bezier(.22,.61,.36,1), filter 1.6s cubic-bezier(.22,.61,.36,1) !important; }
+.start .stimmen-karussell .zeige.sichtbar { opacity: 1 !important; transform: none !important; filter: none; }
+.start .stimmen-karussell .g-gesamt.zeige { transition-delay: .3s !important; }
+.start .stimmen-karussell .karussell.zeige { transition-delay: .6s !important; }

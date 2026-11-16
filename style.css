@@ -1165,3 +1165,9 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .duo-rahmen, .start .fach-teil .fach-rahmen { grid-template-columns: 1fr 1.35fr !important; }
 }
 @media (max-width: 1299px) { .start .duo .duo-fliess { text-align: left; } }
+/* Rechte Seite ganz nach rechts (Jasmina 2026-11-16): Bild rechtsbündig, Fachbereich-Inhalt am rechten Rand */
+@media (min-width: 900px) {
+  .duo-rahmen, .start .fach-teil .fach-rahmen { grid-template-columns: 1.12fr 1fr !important; }
+  .start .fach-karten, .start .fach-teil .fach-satz, .start .fach-teil .fach-gruss { justify-self: end; width: min(100%, 720px); }
+  .start .fach-teil .fach-link { justify-self: start; margin-left: max(0px, calc(100% - 720px)) !important; }
+}

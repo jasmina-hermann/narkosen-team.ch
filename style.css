@@ -1027,3 +1027,6 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 @media (max-aspect-ratio: 4/5) { .claim.seitenname { top: auto; bottom: 30cqh; font-size: clamp(1.5rem, 6.5vw, 2.2rem); } }
 /* Handy: Seitenname links im Himmel über der Wolke, darf umbrechen */
 @media (max-aspect-ratio: 4/5) { .claim.seitenname { left: var(--rand); top: 4cqh; bottom: auto; width: calc(100vw - 2 * var(--rand)); max-width: none; white-space: normal; } }
+/* EKG in der Form des Logos (Jasmina 2026-11-16): flach, kleiner Ausschlag hoch, tief runter, hoch, zurück; nahtlos ans «h» */
+.ekg::before { left: 0 !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 100' preserveAspectRatio='none'%3E%3Cpath d='M-2 52 H40 L52 16 L68 84 L80 34 L88 52 H142' fill='none' stroke='%23fff' stroke-width='7' stroke-linejoin='round' stroke-linecap='square'/%3E%3C/svg%3E") !important; background-position: 0 50% !important; }
+.claim .ekg { margin-left: -.06em; }

@@ -1244,3 +1244,9 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .kreuz .wechsel.an, .kreuz .wechsel .wort.an .wort-text { letter-spacing: -.01em; }
 .kreuz .wechsel::before { inset: 0; transform: none; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.5) 50%, transparent 65%) no-repeat; background-size: 250% 100%; background-position: 150% 0; }
 @keyframes kreuz-schimmer { 0% { background-position: 150% 0; opacity: 0; } 30% { opacity: 1; } 100% { background-position: -50% 0; opacity: 0; } }
+/* kein Zittern: keine Buchstabenabstand- oder Grössen-Animation mehr (Jasmina 2026-11-16) */
+.kreuz .wechsel .wort .wort-icon, .kreuz .wechsel .wort .wort-text,
+.kreuz .wechsel .wort.an .wort-icon, .kreuz .wechsel .wort.an .wort-text { letter-spacing: -.01em !important; will-change: opacity, filter, transform; backface-visibility: hidden; }
+.kreuz .wechsel .wort .wort-icon, .kreuz .wechsel .wort .wort-text { transform: translate3d(0,12px,0); transition: opacity 1.2s cubic-bezier(.22,.61,.36,1), filter 1.2s cubic-bezier(.22,.61,.36,1), transform 1.4s cubic-bezier(.22,.61,.36,1); }
+.kreuz .wechsel .wort.an .wort-icon, .kreuz .wechsel .wort.an .wort-text { transform: translate3d(0,0,0); }
+.kreuz .wechsel .wort.weg .wort-icon, .kreuz .wechsel .wort.weg .wort-text { transform: translate3d(0,-12px,0); }

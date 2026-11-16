@@ -1171,3 +1171,11 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .start .fach-karten, .start .fach-teil .fach-satz, .start .fach-teil .fach-gruss { justify-self: end; width: min(100%, 720px); }
   .start .fach-teil .fach-link { justify-self: start; margin-left: max(0px, calc(100% - 720px)) !important; }
 }
+/* Rechte Seite fast an den Bildschirmrand (Jasmina 2026-11-16) */
+@media (min-width: 900px) {
+  :root { --aussen: max(0px, calc((100vw - 1600px) / 2)); --mr: calc(40px - var(--aussen) - clamp(24px, 4vw, 64px)); }
+  .duo-bild { margin-right: calc(-1 * var(--aussen)); }
+  .duo-bild img { object-position: 45% 30%; }
+  .start .fach-karten, .start .fach-teil .fach-satz, .start .fach-teil .fach-gruss { margin-right: var(--mr) !important; }
+  .start .fach-teil .fach-link { margin-left: max(0px, calc(100% - 720px - var(--mr))) !important; }
+}

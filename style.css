@@ -1141,3 +1141,13 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .start .fach-karten { grid-template-columns: 1fr; gap: 28px; }
   .start .fach-karte { padding: 0; }
 }
+/* Fachbereiche PC: Titel links, Inhalt rechts (Jasmina 2026-11-16) */
+@media (min-width: 900px) {
+  .start .fach-teil .fach-rahmen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); column-gap: clamp(48px, 6vw, 120px); align-items: start; }
+  .start .fach-teil .kapitaelchen { grid-column: 1; grid-row: 1; }
+  .start .fach-teil .fach-titel { grid-column: 1; grid-row: 2 / span 4; }
+  .start .fach-karten { grid-column: 2; grid-row: 1 / span 2; margin-top: 0 !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 3vw, 48px); }
+  .start .fach-teil .fach-satz:not(.fach-gruss) { grid-column: 2; grid-row: 3; margin-top: clamp(48px, 5vw, 72px); }
+  .start .fach-teil .fach-link { grid-column: 2; grid-row: 4; justify-self: start; }
+  .start .fach-teil .fach-gruss { grid-column: 2; grid-row: 5; }
+}

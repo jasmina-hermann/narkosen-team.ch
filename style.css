@@ -1278,3 +1278,36 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 .kreuz .ton-rosa { background: rgba(236,214,222,.38); }
 .kreuz .ton-gruen { background: rgba(19,51,39,.62); --glas-schatten: inset 0 1px 0 rgba(255,255,255,.22), inset 0 0 0 1px rgba(255,255,255,.12), 0 10px 40px rgba(20,40,30,.18); }
 @keyframes kreuz-atem-glanz { 0%, 100% { box-shadow: var(--glas-schatten); } 45% { box-shadow: var(--glas-schatten), 0 0 40px 6px rgba(255,255,255,.55); } }
+
+/* «wir können mehr als narkose» in Jakarta wie der Header (Jasmina 2026-11-16) */
+.start .mehr .serif-lead { font-family: "Plus Jakarta Sans", sans-serif !important; font-weight: 500; font-style: normal; font-size: clamp(1.1rem, 1.4vw, 1.35rem); letter-spacing: -.01em; }
+
+/* Patient*innen-Stimmen als Karussell zwischen «mehr» und Footer (Jasmina 2026-11-16) */
+.start .stimmen-karussell { padding: clamp(40px, 6vw, 90px) 0 clamp(70px, 9vw, 130px); overflow: hidden; }
+.karussell-titel { text-align: center; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: var(--t-h2, 32px); letter-spacing: -.03em; color: var(--tinte); margin: 0 0 clamp(36px, 5vw, 64px); padding: 0 20px; }
+.karussell-titel em { font-style: normal; }
+.karussell { position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.karussell-band { display: flex; width: max-content; animation: karussell-lauf 140s linear infinite; }
+.karussell-kopie { display: flex; }
+.karussell:hover .karussell-band, .karussell:focus-within .karussell-band { animation-play-state: paused; }
+.karussell-stimme { flex: 0 0 auto; width: clamp(260px, 30vw, 440px); margin: 0; padding: 0 clamp(24px, 3vw, 48px); border-left: 1px solid rgba(185,115,138,.35); }
+.karussell-stimme blockquote { margin: 0 0 18px; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 400; font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.6; color: var(--tinte); }
+.karussell-stimme blockquote::before { content: "«"; } .karussell-stimme blockquote::after { content: "»"; }
+.karussell-stimme figcaption { font-family: "Plus Jakarta Sans", sans-serif; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(14,42,64,.6); }
+@keyframes karussell-lauf { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+
+/* Footer: «haben sie noch fragen?», Telefon, Kontakt, Social Media (Jasmina 2026-11-16) */
+.fuss-fragen { text-align: center; padding: clamp(56px, 6vw, 90px) 0 clamp(40px, 4vw, 60px); margin-bottom: clamp(30px, 3vw, 46px); border-bottom: 1px solid rgba(255,255,255,.18); color: #fff; font-family: "Plus Jakarta Sans", sans-serif; }
+.fuss-fragen-titel { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: var(--t-h2, 32px); letter-spacing: -.03em; color: #fff; margin: 0 0 18px; }
+.fuss-fragen-titel em { font-style: normal; }
+.fuss-fragen-text { margin: 0 0 26px; font-size: clamp(.98rem, 1.1vw, 1.1rem); line-height: 1.6; color: rgba(255,255,255,.85); }
+.fuss-fragen-wege { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 14px 40px; margin: 0 0 30px; }
+.fuss-tel { font-weight: 600; font-size: clamp(1.5rem, 2.2vw, 2.1rem); letter-spacing: -.02em; color: #fff; text-decoration: none; font-variant-numeric: lining-nums; }
+.fuss-kontakt { font-size: .82rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #fff; text-decoration: none; padding-bottom: 6px; border-bottom: 1px solid var(--pink); }
+.fuss-kontakt::after { content: " →"; }
+.fuss-sozial { display: flex; justify-content: center; gap: 34px; margin: 0; }
+.fuss-sozial a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .95rem; }
+.fuss-sozial a:hover, .fuss-kontakt:hover { color: #fff; opacity: .8; }
+.fuss-fragen-titel { text-transform: lowercase; }
+.karussell-stimme, .karussell-stimme blockquote { text-align: left; }
+@media (max-width: 760px) { .karussell-band { animation-duration: 110s; } .karussell-stimme { width: 78vw; } }

@@ -1092,3 +1092,15 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .duo-text { padding: 0 24px; }
   .duo-bild img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 51% 30%; }
 }
+
+/* Jasmina 2026-11-16: «persönlich.» grösser, Duo mit Bild-Hintergrundfarbe über die ganze Breite, Text in Jakarta und gross */
+.start .intro h2.serif-gross { font-size: clamp(2.2rem, 3.6vw, 3.4rem) !important; }
+.start .duo { background: #f6f3ee; }
+.start .duo-titel { font-size: clamp(2.2rem, 3.4vw, 3.3rem) !important; line-height: 1.08 !important; margin-bottom: 28px; }
+.start .duo .duo-fliess { font-family: "Plus Jakarta Sans", sans-serif !important; font-weight: 500; font-size: clamp(1.25rem, 1.65vw, 1.6rem) !important; line-height: 1.5 !important; letter-spacing: -.01em; }
+@media (min-width: 900px) {
+  .duo-text { max-width: 600px; padding: 64px clamp(40px, 5vw, 80px); }
+}
+@media (max-width: 899px) {
+  .start .duo { padding-top: 56px !important; }
+}

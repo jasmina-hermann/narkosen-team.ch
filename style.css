@@ -1051,5 +1051,24 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
 @media (min-width: 1000px) and (min-aspect-ratio: 1/1) {
   :root { --hh: clamp(460px, calc(var(--hero-h, 100svh) - 250px), calc(100vw * 935 / 1683)); }
   .hero { height: var(--hh) !important; }
-  .start .intro .serif-lead { margin-top: max(80px, calc(var(--hero-h, 100svh) - var(--hh) - 56px - 64px + 48px)) !important; }
+  .start .duo { padding-top: max(80px, calc(var(--hero-h, 100svh) - var(--hh) - 56px - 64px + 48px)) !important; }
+}
+
+/* Startseite: Kerstin & Gunnar – Text links, Bild rechts (Jasmina 2026-11-16) */
+.start .intro:not(.intro-text) { padding-bottom: 0; }
+.start .duo { padding-top: clamp(64px, 8vw, 110px) !important; padding-bottom: 0; text-align: left; }
+.duo-rahmen { width: min(1080px, 100% - 48px); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
+.duo-text { max-width: 440px; justify-self: end; }
+.start .duo-titel { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; letter-spacing: -.035em; line-height: 1.15; color: var(--tinte); font-size: var(--t-h2, 32px); margin: 0 0 22px; }
+.duo-fliess { font-family: "Cormorant Garamond", "Cormorant", serif; font-size: var(--t-text, 1.2rem); line-height: 1.6; color: var(--tinte); margin: 0; }
+.duo-bild { margin: 0; max-width: 420px; }
+.duo-bild img { display: block; width: 100%; height: auto;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 6%, #000 80%, transparent), linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, transparent, #000 6%, #000 80%, transparent), linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); mask-composite: intersect; }
+.start .intro-text { padding-top: clamp(72px, 8vw, 120px) !important; }
+@media (max-width: 760px) {
+  .duo-rahmen { grid-template-columns: 1fr; gap: 32px; }
+  .duo-text { justify-self: start; max-width: none; }
+  .start .duo-titel { font-size: 26px; }
+  .duo-bild { max-width: none; }
 }

@@ -1213,3 +1213,8 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .kreuz .wort { font-size: .72rem; padding: 0 4px; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: anywhere; }
   .kreuz .mitte .wort { font-size: .85rem; }
 }
+/* Symbole über den Schlagwörtern (Jasmina 2026-11-16) */
+.kreuz .wechsel .wort { display: flex; flex-direction: column; align-items: center; gap: .55em; }
+.kreuz .wechsel .wort::after { content: none; }
+.kreuz .wort-text::after { content: "."; }
+.kreuz .wort-icon svg { display: block; width: clamp(20px, 1.9vw, 32px); height: clamp(20px, 1.9vw, 32px); fill: none; stroke: var(--tinte); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }

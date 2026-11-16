@@ -1179,8 +1179,10 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .start .fach-karten, .start .fach-teil .fach-satz, .start .fach-teil .fach-gruss { margin-right: var(--mr) !important; }
   .start .fach-teil .fach-link { margin-left: max(0px, calc(100% - 720px - var(--mr))) !important; }
 }
-/* Linke Texte ebenfalls näher an den Bildschirmrand (Jasmina 2026-11-16) */
+/* Text mit der Schere nach links: beginnt unter Gunnars Ellbogen (Jasmina 2026-11-16) */
 @media (min-width: 900px) {
-  .duo-text { justify-self: start !important; margin-left: calc(-1 * var(--aussen)); }
-  .start .fach-teil .kapitaelchen, .start .fach-teil .fach-titel { margin-left: calc(-1 * var(--aussen)) !important; }
+  :root { --dh: min(calc(100svh - 70px), 60vw, 860px); --ellb: max(0px, calc(0.45 * (0.4717 * min(100vw, 1600px) + var(--aussen)) - 0.221 * var(--dh))); }
+  .start .fach-karten, .start .fach-teil .fach-satz, .start .fach-teil .fach-gruss { justify-self: start !important; margin-left: var(--ellb) !important; margin-right: 0 !important; width: min(720px, calc(100% + var(--aussen) - var(--ellb) - 40px)) !important; }
+  .start .fach-teil .fach-link { margin-left: var(--ellb) !important; }
 }
+@media (min-width: 900px) { .start .fach-karten { gap: clamp(16px, 2vw, 36px) !important; } }

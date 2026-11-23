@@ -1045,7 +1045,10 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .inhalt > :first-child, .inhalt > .verlauf > :first-child, .inhalt > .mag:first-child > :first-child { padding-top: clamp(36px, 3.5vw, 56px) !important; }
 }
 /* EKG entspringt direkt aus dem «h», ohne Lücke, auf Höhe der Grundlinie (Jasmina 2026-11-23) */
-.claim .ekg { margin-left: -.06em !important; transform: translateY(.335em) !important; }
+/* Unterkante der Box sitzt auf der Grundlinie der Schrift (align-self: baseline), unabhängig von Gerät und Schriftmetrik;
+   die Linie (Mitte bei 52 % der Box, Strich .0875em) wird so verschoben, dass ihre Unterkante genau auf der Grundlinie liegt */
+.claim .claim-smooth { align-items: baseline !important; padding: .135em 0; }
+.claim .ekg { align-self: baseline !important; margin-top: -1em; margin-left: -.06em !important; transform: translateY(.556em) !important; }
 
 /* Startseite PC: im ersten Blick nur Header + «persönlich. mobil. exklusiv.», der Text folgt erst beim Scrollen (Jasmina 2026-11-16) */
 @media (min-width: 1000px) and (min-aspect-ratio: 1/1) {

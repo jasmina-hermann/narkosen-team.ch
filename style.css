@@ -1396,3 +1396,14 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .start .stimmen-karussell { padding-top: clamp(60px, 12vw, 110px) !important; }
 }
 @media (min-width: 761px) and (max-width: 1000px) { .start .kapitel.mehr { background-image: url("bilder/mehr-wolke.jpg") !important; } }
+
+/* ---------- Handy + Tablet hochkant: wie am PC (Jasmina 2026-11-23) ----------
+   Header kürzer, damit «persönlich. mobil. exklusiv.» (bzw. der erste Titel der Unterseite) schon im ersten Bild sichtbar ist.
+   Das Bild füllt den Header bis knapp unter das Logo, kein leerer dunkelblauer Himmel mehr darüber. */
+@media (max-aspect-ratio: 1/1) {
+  .hero { height: max(340px, calc(var(--hero-h, 100svh) - 175px)) !important; min-height: 0; }
+  .buehne { height: calc(100% - 64px); }
+  .inhalt > :first-child, .inhalt > .verlauf > :first-child, .inhalt > .mag:first-child > :first-child { padding-top: 30px !important; }
+  /* wie am PC: im ersten Bild nur Header + Titel, der nächste Abschnitt beginnt erst darunter */
+  .start .intro:not(.intro-text) { min-height: 175px; box-sizing: border-box; }
+}

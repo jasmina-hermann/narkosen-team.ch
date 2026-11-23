@@ -1410,3 +1410,6 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   /* wie am PC: im ersten Bild nur Header + Titel, der nächste Abschnitt beginnt erst darunter */
   .start .intro:not(.intro-text) { min-height: 175px; box-sizing: border-box; }
 }
+/* «made by codepixel.ch» nie unter dem WhatsApp-Knopf (Jasmina 2026-11-23): rechts Platz für Knopf + Puls freihalten */
+.fuss-unten { padding-right: calc(clamp(16px, 3vw, 32px) + 56px + 28px) !important; }
+@media (max-width: 700px) { .fuss-unten { padding-right: calc(clamp(16px, 3vw, 32px) + 50px + 20px) !important; } }

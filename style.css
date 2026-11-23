@@ -1044,8 +1044,8 @@ h2.titel, h2.titel-gross, .start h2.titel, .start .serif-gross, .start .serif-ri
   .claim.seitenname { top: auto; bottom: 20cqh; width: auto; }
   .inhalt > :first-child, .inhalt > .verlauf > :first-child, .inhalt > .mag:first-child > :first-child { padding-top: clamp(36px, 3.5vw, 56px) !important; }
 }
-/* EKG mit klarem Abstand zum «h», auf Höhe der Grundlinie (Jasmina 2026-11-16) */
-.claim .ekg { margin-left: .14em !important; }
+/* EKG entspringt direkt aus dem «h», ohne Lücke, auf Höhe der Grundlinie (Jasmina 2026-11-23) */
+.claim .ekg { margin-left: -.06em !important; transform: translateY(.335em) !important; }
 
 /* Startseite PC: im ersten Blick nur Header + «persönlich. mobil. exklusiv.», der Text folgt erst beim Scrollen (Jasmina 2026-11-16) */
 @media (min-width: 1000px) and (min-aspect-ratio: 1/1) {
